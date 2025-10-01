@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://48vh8nt65n6k"]
+[gd_scene load_steps=57 format=4 uid="uid://48vh8nt65n6k"]
 
 [ext_resource type="Texture2D" uid="uid://dlvydllk7h4u7" path="res://icon.svg" id="1_epypp"]
 [ext_resource type="Texture2D" uid="uid://bbddp5gciwfoe" path="res://art/tilemap/Tileset.png" id="1_kdubu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://5pepo6dcesjv" path="res://scenes/enemies/bat/animations/Dmg.png" id="8_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://b2ysx61u5yod0" path="res://scenes/enemies/bat/animations/Idle.png" id="9_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://7284qw8x78vt" path="res://scenes/enemies/bat/animations/ShadowBatFly.png" id="10_d2bti"]
+[ext_resource type="Texture2D" uid="uid://ds5fkq8i6o8ag" path="res://art/WildfireIdle.png" id="11_hqns4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d21ai"]
 texture = ExtResource("1_kdubu")
@@ -578,6 +579,42 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8iy"]
 size = Vector2(8, 6)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta5nu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0ka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
@@ -650,5 +687,11 @@ y_sort_enabled = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_ir8iy")
 disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 211)
+sprite_frames = SubResource("SpriteFrames_ta5nu")
+frame_progress = 0.9205327
 
 [connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]
