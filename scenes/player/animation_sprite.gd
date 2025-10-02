@@ -1,21 +1,37 @@
-class_name PlayerAnimation
+class_name CharacterSprite
 extends AnimatedSprite2D
 
-@onready var character_body_2d = $".."
-@export var playable
-
-
-func _process(delta):
-	var velo = character_body_2d.velocity
-	if (velo.y < 0):
-		if (velo.x > 0):
-			self.play("walk_up_right")
-		else:
-			self.play("walk_up_left")
-	elif (velo == Vector2.ZERO):
-		self.play("default")
-	else:
-		if (velo.x < 0):
-			self.play("walk_down_left")
-		else:
-			self.play("walk_down_right")
+func walk_up():
+	play_animation("walk_up")
+	
+func walk_down():
+	play_animation("walk_down")
+	
+func idle():
+	play_animation("idle")
+	
+func die():
+	play_animation("die")
+	
+func damage():
+	play_animation("dmg")
+	
+func attack(dir):
+	play_animation("attack" + "_" + dir)
+	
+func special():
+	play_animation("special")
+	
+func play_animation(name):
+	await check_for_uninteruptable(name)
+	play(name)
+	
+func check_for_uninteruptable(name):
+	if not is_playing():
+		return 
+	if animation == "dmg" and (name != "dmg" or name != "die" or name != "attack" or name != "special"):
+		await animation_finished
+	if (animation == "attack_up" or animation == "attack_down") and name != "die":
+		await animation_finished
+	if animation == "special":
+		await animation_finished

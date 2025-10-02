@@ -1,22 +1,31 @@
+class_name Enemy
 extends Area2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
+const BAT_CHARACTER = preload("uid://b1u3xumenb4st")
+var character: Character
+@export var type: EnemyType
+@export var idle_area: Area2D
+@export var aggro_area: Area2D
+var animated_sprite: CharacterSprite
+@onready var enemy_state_machine = $EnemyStateMachine
+
+enum EnemyType { BAT, WARG }
+
+var character_dict = { 0: BAT_CHARACTER }
 
 func _ready():
-	await get_tree().create_timer(7).timeout
-	_on_death()
+	var nc = character_dict[type].instantiate()
+	add_child(nc)
+	character = nc
+	animated_sprite = character.animated_sprite_2d
+	enemy_state_machine.init(self)
 	pass
 
 func _on_hit():
-	animated_sprite_2d.play("Dmg")
+	animated_sprite.dmg()
 	
 func _on_death():
-	animated_sprite_2d.play("Die")
+	animated_sprite.die()
 	
-func _on_attack():
-	animated_sprite_2d.play("Attack")
-
-
-func _on_body_entered(body):
-	_on_attack();
-	pass # Replace with function body.
+func _process(delta):
+	enemy_state_machine.current_state.process(delta)

@@ -1,30 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpkiscg7i344d"]
+[gd_scene load_steps=8 format=3 uid="uid://bpkiscg7i344d"]
 
 [ext_resource type="Script" uid="uid://c4iy80er43x2b" path="res://scenes/player/character_body_2d.gd" id="1_lvxji"]
-[ext_resource type="SpriteFrames" uid="uid://dgeuyfvot14de" path="res://scenes/player/animations/human_sprite_frames.tres" id="2_gmlin"]
-[ext_resource type="Script" uid="uid://yp5n2ute8eef" path="res://scenes/player/animation_sprite.gd" id="4_0owmy"]
+[ext_resource type="PackedScene" uid="uid://bpbar0ooab80q" path="res://scenes/character/soul_character.tscn" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://dfk4a7jm7ueo5" path="res://scenes/player/state_machine/player_state_machine.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://crq8uuynvtb8" path="res://scenes/player/state_machine/walk_state.gd" id="5_75vfm"]
+[ext_resource type="Script" uid="uid://bucyy7d7dlpf" path="res://scenes/player/state_machine/idle_state.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://dbvw2w65ne5s2" path="res://scenes/player/state_machine/attack_state.gd" id="6_75vfm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uidu"]
-size = Vector2(7, 7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
+size = Vector2(4, 5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("character")]
 collision_layer = 2
 script = ExtResource("1_lvxji")
-run_speed = 40.0
-
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -3)
-sprite_frames = ExtResource("2_gmlin")
-animation = &"die"
-autoplay = "default"
-frame_progress = 0.8882297
-script = ExtResource("4_0owmy")
+character = NodePath("Soul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_6uidu")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_75vfm")
+
+[node name="Soul" parent="." instance=ExtResource("2_dovo2")]
+
+[node name="AnimatedSprite2D" parent="Soul" index="0"]
+frame = 11
+
+[node name="Hurtbox" parent="Soul" index="2"]
+script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -3)
 zoom = Vector2(5, 5)
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_gmlin")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_p47bc")
+
+[node name="WalkState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_75vfm")
+state = 2
+
+[node name="AttackState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("6_75vfm")
+state = 1
+
+[connection signal="child_entered_tree" from="PlayerStateMachine" to="PlayerStateMachine" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="PlayerStateMachine" to="PlayerStateMachine" method="_on_child_exiting_tree"]
+
+[editable path="Soul"]

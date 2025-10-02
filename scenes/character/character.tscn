@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfbp6adtn4o25"]
+
+[ext_resource type="Script" uid="uid://cwvbn2imregbb" path="res://scenes/character/character.gd" id="1_cuyo6"]
+[ext_resource type="Script" uid="uid://yp5n2ute8eef" path="res://scenes/player/animation_sprite.gd" id="3_fgi2k"]
+[ext_resource type="Script" uid="uid://ccn473ihrvwht" path="res://scenes/character/attack_area.gd" id="3_mutn8"]
+[ext_resource type="Script" uid="uid://den46bpypo6ha" path="res://scenes/character/hurtbox.gd" id="4_fgi2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgi2k"]
+size = Vector2(14.849244, 9.970664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuyo6"]
+size = Vector2(14, 13)
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_cuyo6")
+movement_speed = 50.0
+damage = 10.0
+health = 10.0
+can_attack = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+animation = &""
+script = ExtResource("3_fgi2k")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_mutn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(3.2248383, 3.7248378)
+rotation = 2.3561945
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_fgi2k")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("4_fgi2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_cuyo6")
