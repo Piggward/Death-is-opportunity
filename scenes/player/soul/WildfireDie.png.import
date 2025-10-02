@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds5fkq8i6o8ag"
-path="res://.godot/imported/WildfireIdle.png-18670c752387c4a1c414176a4ae3ed22.ctex"
+uid="uid://b7327mrglionv"
+path="res://.godot/imported/WildfireDie.png-8fe0f451a1d0cc15a5a30a38c6da511f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/WildfireIdle.png"
-dest_files=["res://.godot/imported/WildfireIdle.png-18670c752387c4a1c414176a4ae3ed22.ctex"]
+source_file="res://scenes/player/soul/WildfireDie.png"
+dest_files=["res://.godot/imported/WildfireDie.png-8fe0f451a1d0cc15a5a30a38c6da511f.ctex"]
 
 [params]
 

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://5pepo6dcesjv" path="res://scenes/enemies/bat/animations/Dmg.png" id="8_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://b2ysx61u5yod0" path="res://scenes/enemies/bat/animations/Idle.png" id="9_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://7284qw8x78vt" path="res://scenes/enemies/bat/animations/ShadowBatFly.png" id="10_d2bti"]
-[ext_resource type="Texture2D" uid="uid://ds5fkq8i6o8ag" path="res://art/WildfireIdle.png" id="11_hqns4"]
+[ext_resource type="Texture2D" uid="uid://ds5fkq8i6o8ag" path="res://scenes/player/soul/WildfireIdle.png" id="11_hqns4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d21ai"]
 texture = ExtResource("1_kdubu")
@@ -637,7 +637,7 @@ tile_set = SubResource("TileSet_ir8iy")
 
 [node name="Player" parent="." instance=ExtResource("4_0hol4")]
 y_sort_enabled = true
-position = Vector2(641, 240)
+position = Vector2(607, 311)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Player"]
 visible = false
@@ -688,10 +688,10 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_ir8iy")
 disabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="SoulSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(640, 211)
+position = Vector2(534, 308)
 sprite_frames = SubResource("SpriteFrames_ta5nu")
-frame_progress = 0.9205327
+frame_progress = 0.98552084
 
 [connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]

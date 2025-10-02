@@ -2,7 +2,7 @@ class_name PlayerAnimation
 extends AnimatedSprite2D
 
 @onready var character_body_2d = $".."
-
+@export var playable
 
 
 func _process(delta):

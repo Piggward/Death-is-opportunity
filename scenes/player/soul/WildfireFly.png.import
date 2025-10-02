@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://elxcsgi6iwh7"
-path="res://.godot/imported/WildfireDmg.png-ff8ff025b7ba5bb9bfad515ceb362760.ctex"
+uid="uid://rcor2ynma3pw"
+path="res://.godot/imported/WildfireFly.png-4283e052ed662e6a7a50623714600e5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/WildfireDmg.png"
-dest_files=["res://.godot/imported/WildfireDmg.png-ff8ff025b7ba5bb9bfad515ceb362760.ctex"]
+source_file="res://scenes/player/soul/WildfireFly.png"
+dest_files=["res://.godot/imported/WildfireFly.png-4283e052ed662e6a7a50623714600e5f.ctex"]
 
 [params]
 
