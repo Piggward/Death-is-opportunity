@@ -20,7 +20,7 @@ func process(delta):
 		
 func soul_animation():
 	var tween = get_tree().create_tween()
-	tween.tween_property(player, "global_position", resurrecting_character.global_position + resurrecting_character.res_pos, 1.2)
+	tween.tween_property(player, "global_position", resurrecting_character.global_position + resurrecting_character.res_pos + player.character_sprite.position, 1.2)
 	tween.play()
 	player.character_sprite.special()
 	await player.character_sprite.animation_finished

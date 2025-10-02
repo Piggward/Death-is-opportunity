@@ -1,4 +1,4 @@
-class_name Hurtbox
+class_name HurtboxArea
 extends Area2D
 
 @onready var character = $".."
@@ -10,6 +10,11 @@ func _ready():
 	reset()
 		
 func reset():
+	collision_layer = 0
+	collision_mask = 0
+	if character is not Character: 
+		self.set_collision_layer_value(ENEMY_HURT_LAYER, true)
+		return
 	if not character.is_node_ready():
 		await character.ready
 	if character.enemy:
@@ -18,4 +23,5 @@ func reset():
 		self.set_collision_layer_value(PLAYER_HURT_LAYER, true)
 		
 func take_damage(damage):
+	print("tkantewio")
 	character.take_damage(damage)

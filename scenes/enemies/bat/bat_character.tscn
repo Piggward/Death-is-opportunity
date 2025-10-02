@@ -22,7 +22,7 @@ animations = [{
 [node name="Character" instance=ExtResource("1_vnyva")]
 movement_speed = 30.0
 damage = 5.0
-attack_cd = 0.5
+attack_cd = 15.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -7)
@@ -36,5 +36,8 @@ sprite_frames = SubResource("SpriteFrames_xtcsk")
 
 [node name="AttackArea" parent="." index="2"]
 position = Vector2(0, -7)
+
+[node name="CollisionShape2D" parent="HurtboxArea" index="0"]
+position = Vector2(-0.5, -12)
 
 [connection signal="area_entered" from="AttackArea" to="AttackArea" method="_on_area_entered"]

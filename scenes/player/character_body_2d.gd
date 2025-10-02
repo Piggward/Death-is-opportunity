@@ -32,6 +32,10 @@ func _ready():
 	character_sprite = character.animated_sprite_2d
 	find_special()
 	player_state_machine.init(self)
+	character.died.connect(_on_character_dead)
+	
+func _on_character_dead():
+	player_state_machine.current_state.dead()
 	
 func find_special():
 	if character.has_special:

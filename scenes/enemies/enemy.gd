@@ -19,13 +19,11 @@ func _ready():
 	character = nc
 	animated_sprite = character.animated_sprite_2d
 	enemy_state_machine.init(self)
+	character.died.connect(_on_character_dead)
 	pass
 
-func _on_hit():
-	animated_sprite.dmg()
-	
-func _on_death():
-	animated_sprite.die()
+func _on_character_dead():
+	enemy_state_machine.current_state.dead()
 	
 func _process(delta):
 	enemy_state_machine.current_state.process(delta)

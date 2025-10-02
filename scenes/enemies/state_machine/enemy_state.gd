@@ -17,3 +17,7 @@ func exit() -> void:
 	
 func process(delta): 
 	pass
+
+func dead():
+	if self.state != State.DEAD:
+		transition_requested.emit(self, State.DEAD)
