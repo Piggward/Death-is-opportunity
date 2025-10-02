@@ -7,11 +7,15 @@ const ENEMY_HURT_LAYER = 7
 const PLAYER_HURT_LAYER = 6
 
 func _ready():
-	monitoring = false
+	reset()
+		
+func reset():
+	if not character.is_node_ready():
+		await character.ready
 	if character.enemy:
-		self.collision_layer = ENEMY_HURT_LAYER
+		self.set_collision_layer_value(ENEMY_HURT_LAYER, true)
 	else:
-		self.collision_layer = PLAYER_HURT_LAYER
+		self.set_collision_layer_value(PLAYER_HURT_LAYER, true)
 		
 func take_damage(damage):
 	character.take_damage(damage)

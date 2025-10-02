@@ -34,10 +34,10 @@ rotation = 2.3561945
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_fgi2k")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="HurtboxArea" type="Area2D" parent="."]
 collision_layer = 2
 script = ExtResource("4_fgi2k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_cuyo6")

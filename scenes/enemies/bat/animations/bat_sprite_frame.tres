@@ -128,9 +128,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_vl5tj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vl5tj")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_16pp4")
 }, {
 "duration": 1.0,
@@ -141,7 +138,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_down",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,7 +155,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_up",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

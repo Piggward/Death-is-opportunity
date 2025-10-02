@@ -20,6 +20,7 @@ func switch_bodies(new: Character):
 	old.queue_free()
 	run_speed = character.movement_speed
 	character_sprite = character.animated_sprite_2d
+	character.reset()
 	
 func on_attack():
 	attack_cd = true
@@ -45,7 +46,7 @@ func remove_special():
 			
 	
 func take_damage():
-	character_sprite.play("dmg")
+	character_sprite.damage()
 
 func _physics_process(delta):
 	player_state_machine.current_state.process(delta)

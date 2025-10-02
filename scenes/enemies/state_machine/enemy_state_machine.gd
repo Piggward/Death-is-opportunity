@@ -29,7 +29,6 @@ func _on_transition_requested(from: EnemyState, to: EnemyState.State) -> void:
 	if current_state:
 		current_state.exit()
 	
-	print("entering state: ", new_state.state)
 	new_state.enter()
 	current_state = new_state
 

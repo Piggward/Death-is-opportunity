@@ -7,10 +7,13 @@ extends Node2D
 @export var health: float
 @export var can_attack: bool
 @export var has_special: bool
+@export var attack_cd: float
 var res_pos: Vector2
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var resurrect_position = $Resurrect_Position
 @onready var attack_area = $AttackArea
+@onready var hurtbox_area = $HurtboxArea
+
 var enemy = false
 
 signal died
@@ -32,6 +35,16 @@ func take_damage(damage):
 	animated_sprite_2d.damage()
 	if health <= 0:
 		die()
+		
+func reset():
+	if get_parent() is Enemy:
+		enemy = true
+	attack_area.collision_layer = 0
+	attack_area.collision_mask = 0
+	hurtbox_area.collision_layer = 0
+	hurtbox_area.collision_mask = 0
+	attack_area.reset()
+	hurtbox_area.reset()
 		
 func die():
 	animated_sprite_2d.die()

@@ -393,8 +393,9 @@ autoplay = "idle"
 [node name="Hurtbox" parent="ResurrectableArea/Human_Character" index="2"]
 script = null
 
-[node name="Player" parent="." instance=ExtResource("4_0hol4")]
+[node name="Player" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_0hol4")]
 position = Vector2(576, 325)
+character = NodePath("Soul")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("idle_area", "aggro_area") instance=ExtResource("7_d21ai")]
 position = Vector2(652, 234)

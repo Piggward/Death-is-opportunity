@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpkiscg7i344d"]
+[gd_scene load_steps=10 format=3 uid="uid://bpkiscg7i344d"]
 
 [ext_resource type="Script" uid="uid://c4iy80er43x2b" path="res://scenes/player/character_body_2d.gd" id="1_lvxji"]
 [ext_resource type="PackedScene" uid="uid://bpbar0ooab80q" path="res://scenes/character/soul_character.tscn" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://den46bpypo6ha" path="res://scenes/character/hurtbox.gd" id="3_0owmy"]
 [ext_resource type="Script" uid="uid://dfk4a7jm7ueo5" path="res://scenes/player/state_machine/player_state_machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://crq8uuynvtb8" path="res://scenes/player/state_machine/walk_state.gd" id="5_75vfm"]
 [ext_resource type="Script" uid="uid://bucyy7d7dlpf" path="res://scenes/player/state_machine/idle_state.gd" id="5_p47bc"]
@@ -10,26 +11,31 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
 size = Vector2(4, 5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuyo6"]
+size = Vector2(14, 13)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("character")]
 collision_layer = 2
 script = ExtResource("1_lvxji")
-character = NodePath("Soul")
+character = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_75vfm")
 
-[node name="Soul" parent="." instance=ExtResource("2_dovo2")]
-
-[node name="AnimatedSprite2D" parent="Soul" index="0"]
-frame = 11
-
-[node name="Hurtbox" parent="Soul" index="2"]
-script = null
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -3)
 zoom = Vector2(5, 5)
+
+[node name="Soul" parent="." instance=ExtResource("2_dovo2")]
+
+[node name="Hurtbox" parent="Soul" index="2"]
+collision_layer = 2
+script = ExtResource("3_0owmy")
+
+[node name="CollisionShape2D" parent="Soul/Hurtbox" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_cuyo6")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")
