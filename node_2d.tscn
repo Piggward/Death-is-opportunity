@@ -416,7 +416,7 @@ position = Vector2(243.5, 168)
 shape = SubResource("RectangleShape2D_rj586")
 
 [node name="Player" parent="." node_paths=PackedStringArray("character") instance=ExtResource("4_0hol4")]
-position = Vector2(637, 317)
+position = Vector2(475, 314)
 character = NodePath("Soul")
 
 [editable path="ResurrectableArea/Human_Character"]

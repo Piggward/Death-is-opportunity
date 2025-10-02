@@ -18,6 +18,8 @@ has_special = true
 sprite_frames = ExtResource("3_n0jjx")
 animation = &"special"
 autoplay = "idle"
+frame = 11
+frame_progress = 1.0
 
 [node name="AttackArea" parent="." index="1"]
 visible = false
