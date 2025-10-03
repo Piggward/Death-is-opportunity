@@ -9,7 +9,9 @@ attack_cd = 1.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_nh6fe")
-animation = &"dmg"
+animation = &"die"
+frame = 6
+frame_progress = 1.0
 
 [node name="Resurrect_Position" type="Marker2D" parent="." index="3"]
 position = Vector2(-4, 1)

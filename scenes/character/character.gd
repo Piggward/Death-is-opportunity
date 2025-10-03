@@ -8,6 +8,7 @@ extends Node2D
 @export var can_attack: bool
 @export var has_special: bool
 @export var attack_cd: float
+@export var pre_attack_cd: float
 var res_pos: Vector2
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var resurrect_position = $Resurrect_Position
@@ -28,10 +29,9 @@ func resurrect():
 	animated_sprite_2d.play_backwards("die")
 	
 func can_special():
-	pass
+	return true
 	
 func take_damage(damage):
-	print("take damage")
 	if dead:
 		return
 	self.health -= damage
@@ -44,9 +44,11 @@ func reset():
 		enemy = true
 	attack_area.reset()
 	hurtbox_area.reset()
+	dead = false
 		
 func die():
 	dead = true
+	attack_area.reset()
 	died.emit()
 	
 func special():

@@ -38,7 +38,7 @@ func exit():
 	character.attack_area.monitoring = false
 	
 func finish():
-	if enemy.aggro_area.get_overlapping_bodies().size() > 0:
+	if enemy.aggro_area.get_overlapping_bodies().size() > 0  and enemy.aggro_area.get_overlapping_bodies()[0].character is not SoulCharacter:
 		transition_requested.emit(self, EnemyState.State.HUNT)
 	else:
 		transition_requested.emit(self, EnemyState.State.IDLE)

@@ -27,3 +27,4 @@ func _on_character_dead():
 	
 func _process(delta):
 	enemy_state_machine.current_state.process(delta)
+	

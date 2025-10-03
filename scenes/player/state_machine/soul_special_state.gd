@@ -4,9 +4,14 @@ var soul_area: Area2D
 var resurrecting_area: RessurectableArea
 var resurrecting_character: Character
 var started = false
+var dying = false
 
 func enter():
+	dying = false
+	started = false
 	player.velocity = Vector2.ZERO
+	if player.character is not SoulCharacter:
+		return
 	soul_area = player.character.soul_area;
 
 	resurrecting_area = soul_area.get_overlapping_areas()[0]
@@ -14,7 +19,13 @@ func enter():
 	
 func process(delta):
 	player.velocity = Vector2.ZERO
-	if not started: 
+	if dying:
+		return
+	if player.character is not SoulCharacter and not dying:
+		dying = true
+		player.character.die()
+		return
+	elif not started: 
 		started = true
 		await soul_animation()
 		
@@ -28,5 +39,5 @@ func soul_animation():
 	resurrecting_character.resurrect()
 	await resurrecting_character.animated_sprite_2d.animation_finished
 	resurrecting_area.queue_free()
-	transition_requested.emit(self, PlayerState.State.IDLE)
 	player.switch_bodies(resurrecting_character)
+	transition_requested.emit(self, PlayerState.State.IDLE)

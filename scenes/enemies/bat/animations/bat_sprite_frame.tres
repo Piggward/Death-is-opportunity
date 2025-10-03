@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=34 format=3 uid="uid://dx2ll5ut4n356"]
+[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://dx2ll5ut4n356"]
 
 [ext_resource type="Texture2D" uid="uid://bwa3i1ywhsf5j" path="res://scenes/enemies/bat/animations/Attack.png" id="1_yxnao"]
 [ext_resource type="Texture2D" uid="uid://cy14nughfblsu" path="res://scenes/enemies/bat/animations/Die.png" id="2_omyab"]
@@ -64,14 +64,6 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnn4a"]
 atlas = ExtResource("2_omyab")
 region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1aygh"]
-atlas = ExtResource("2_omyab")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_td2a2"]
-atlas = ExtResource("2_omyab")
-region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6xte"]
 atlas = ExtResource("3_3y0dl")
@@ -178,12 +170,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wnn4a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1aygh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_td2a2")
 }],
 "loop": false,
 "name": &"die",
