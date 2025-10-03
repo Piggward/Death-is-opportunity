@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfbp6adtn4o25"]
+[gd_scene load_steps=8 format=3 uid="uid://bfbp6adtn4o25"]
 
 [ext_resource type="Script" uid="uid://cwvbn2imregbb" path="res://scenes/character/character.gd" id="1_cuyo6"]
 [ext_resource type="Script" uid="uid://yp5n2ute8eef" path="res://scenes/player/animation_sprite.gd" id="3_fgi2k"]
@@ -6,10 +6,13 @@
 [ext_resource type="Script" uid="uid://den46bpypo6ha" path="res://scenes/character/hurtbox.gd" id="4_fgi2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgi2k"]
-size = Vector2(14.849244, 9.970664)
+size = Vector2(9.899496, 8.556452)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuyo6"]
 size = Vector2(15, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8hpl"]
+size = Vector2(8, 8)
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_cuyo6")
@@ -29,7 +32,7 @@ collision_mask = 0
 script = ExtResource("3_mutn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(3.2248383, 3.7248378)
+position = Vector2(2.4748383, 3.4748383)
 rotation = 2.3561945
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_fgi2k")
@@ -41,5 +44,14 @@ script = ExtResource("4_fgi2k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_cuyo6")
+
+[node name="CharacterArea" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterArea"]
+shape = SubResource("RectangleShape2D_f8hpl")
+
+[node name="ResurrectMarker" type="Marker2D" parent="."]
 
 [connection signal="area_entered" from="AttackArea" to="AttackArea" method="_on_area_entered"]

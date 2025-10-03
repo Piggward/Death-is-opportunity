@@ -17,6 +17,7 @@ func init(enemy: Enemy) -> void:
 		current_state = initial_state
 		
 func _on_transition_requested(from: EnemyState, to: EnemyState.State) -> void:
+	print("WHiuweh fiw")
 	if from != current_state:
 		print("error1: ", from)
 		return

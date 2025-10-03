@@ -9,21 +9,22 @@ extends Node2D
 @export var has_special: bool
 @export var attack_cd: float
 @export var pre_attack_cd: float
-var res_pos: Vector2
+@export var set_dead: bool
+@export var can_be_resurrected: bool = true
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var resurrect_position = $Resurrect_Position
 @onready var attack_area = $AttackArea
 @onready var hurtbox_area = $HurtboxArea
 var dead = false
 var enemy = false
+@onready var resurrect_marker = $ResurrectMarker
 
 signal died
 
 func _ready():
-	if resurrect_position:
-		res_pos = resurrect_position.position
 	if get_parent() is Enemy:
 		enemy = true
+	if set_dead:
+		animated_sprite_2d.die()
 
 func resurrect():
 	animated_sprite_2d.play_backwards("die")
@@ -32,12 +33,13 @@ func can_special():
 	return true
 	
 func take_damage(damage):
-	if dead:
+	if dead or self is SoulCharacter:
 		return
 	self.health -= damage
-	animated_sprite_2d.damage()
 	if health <= 0:
 		die()
+		return
+	animated_sprite_2d.damage()
 		
 func reset():
 	if get_parent() is Enemy:
@@ -45,11 +47,20 @@ func reset():
 	attack_area.reset()
 	hurtbox_area.reset()
 	dead = false
+	z_index = 0
 		
 func die():
 	dead = true
 	attack_area.reset()
+	z_index = 0
 	died.emit()
+	
+func fade():
+	var tween = get_tree().create_tween()
+	tween.tween_property(animated_sprite_2d, "self_modulate", Color(1, 1, 1, 0), 3)
+	await tween.finished
+	print("free")
+	self.queue_free()
 	
 func special():
 	pass

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=43 format=3 uid="uid://bj3ducvangiue"]
+[gd_resource type="SpriteFrames" load_steps=45 format=3 uid="uid://bj3ducvangiue"]
 
 [ext_resource type="Texture2D" uid="uid://ds5fkq8i6o8ag" path="res://scenes/player/soul/WildfireIdle.png" id="1_clwgq"]
 [ext_resource type="Texture2D" uid="uid://elxcsgi6iwh7" path="res://scenes/player/soul/WildfireDmg.png" id="1_tevjl"]
@@ -72,6 +72,14 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7t04b"]
 atlas = ExtResource("2_tevjl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev8gq"]
+atlas = ExtResource("1_clwgq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5j68"]
+atlas = ExtResource("1_clwgq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkrxn"]
@@ -222,6 +230,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7t04b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysdog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8q8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev8gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5j68")
 }],
 "loop": false,
 "name": &"spawn",

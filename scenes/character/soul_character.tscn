@@ -5,6 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bj3ducvangiue" path="res://scenes/player/animations/sould_sprite_frames.tres" id="3_n0jjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqdcv"]
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_n0jjx"]
 resource_name = "spawn"
@@ -69,10 +70,13 @@ _data = {
 
 [node name="Soul" instance=ExtResource("1_yon3b")]
 script = ExtResource("2_1bisg")
-damage = 0.0
+damage = null
 flying = true
-can_attack = false
+can_attack = null
 has_special = true
+attack_cd = null
+pre_attack_cd = null
+set_dead = null
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 1
@@ -83,7 +87,7 @@ autoplay = "shadow"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("3_n0jjx")
-animation = &"idle"
+animation = &"spawn"
 autoplay = "idle"
 
 [node name="AttackArea" parent="." index="2"]
@@ -97,10 +101,12 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoulArea" index="0"]
-position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_cqdcv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
 &"": SubResource("AnimationLibrary_cqdcv")
 }
+
+[connection signal="area_entered" from="SoulArea" to="." method="_on_soul_area_area_entered"]
+[connection signal="area_exited" from="SoulArea" to="." method="_on_soul_area_area_exited"]

@@ -4,9 +4,11 @@ var idle_area: Area2D
 var target = Vector2.ZERO
 
 func process(delta):
-	if enemy.aggro_area.get_overlapping_bodies().size() > 0 and enemy.aggro_area.get_overlapping_bodies()[0].character is not SoulCharacter:
-		transition_requested.emit(self, State.HUNT)
-		return
+	if enemy.aggro_area.get_overlapping_bodies().size() > 0:
+		var char = enemy.aggro_area.get_overlapping_bodies()[0].character 
+		if char is not SoulCharacter and not char.dead:
+			transition_requested.emit(self, EnemyState.State.HUNT)
+			return
 	var distance = target - enemy.global_position 
 	if distance.length() <= enemy.character.movement_speed * delta:
 		enemy.global_position = target

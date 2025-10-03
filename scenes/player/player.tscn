@@ -1,20 +1,22 @@
 [gd_scene load_steps=10 format=3 uid="uid://bpkiscg7i344d"]
 
 [ext_resource type="Script" uid="uid://c4iy80er43x2b" path="res://scenes/player/character_body_2d.gd" id="1_lvxji"]
-[ext_resource type="PackedScene" uid="uid://bpbar0ooab80q" path="res://scenes/character/soul_character.tscn" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://dfk4a7jm7ueo5" path="res://scenes/player/state_machine/player_state_machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://crq8uuynvtb8" path="res://scenes/player/state_machine/walk_state.gd" id="5_75vfm"]
 [ext_resource type="Script" uid="uid://bucyy7d7dlpf" path="res://scenes/player/state_machine/idle_state.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://dbvw2w65ne5s2" path="res://scenes/player/state_machine/attack_state.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://caxmia3vhf5yi" path="res://scenes/player/state_machine/dead_state.gd" id="7_0owmy"]
+[ext_resource type="PackedScene" uid="uid://b1dcm6x8p7rsw" path="res://scenes/character/human_character.tscn" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://cv575bnmmg5kl" path="res://scenes/player/state_machine/soul_special_state.gd" id="8_qek5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
 size = Vector2(6, 6)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("character")]
 collision_layer = 2
+collision_mask = 129
 script = ExtResource("1_lvxji")
+character = NodePath("Human_Character")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -23,14 +25,6 @@ shape = SubResource("RectangleShape2D_75vfm")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -5)
 zoom = Vector2(5, 5)
-
-[node name="Soul" parent="." instance=ExtResource("2_dovo2")]
-
-[node name="AttackArea" parent="Soul" index="2"]
-visible = true
-
-[node name="CollisionShape2D" parent="Soul/AttackArea" index="0"]
-visible = true
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")
@@ -55,7 +49,7 @@ state = 4
 script = ExtResource("8_qek5x")
 state = 3
 
+[node name="Human_Character" parent="." instance=ExtResource("8_5gtgg")]
+
 [connection signal="child_entered_tree" from="PlayerStateMachine" to="PlayerStateMachine" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="PlayerStateMachine" to="PlayerStateMachine" method="_on_child_exiting_tree"]
-
-[editable path="Soul"]

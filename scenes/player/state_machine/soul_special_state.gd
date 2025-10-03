@@ -24,6 +24,7 @@ func process(delta):
 	if player.character is not SoulCharacter and not dying:
 		dying = true
 		player.character.die()
+		EventManager.has_died = true
 		return
 	elif not started: 
 		started = true
@@ -31,7 +32,7 @@ func process(delta):
 		
 func soul_animation():
 	var tween = get_tree().create_tween()
-	tween.tween_property(player, "global_position", resurrecting_character.global_position, 0.7)
+	tween.tween_property(player, "global_position", resurrecting_character.global_position + resurrecting_character.resurrect_marker.position, 0.7)
 	tween.play()
 	player.character_sprite.special()
 	await player.character_sprite.animation_finished
@@ -41,3 +42,4 @@ func soul_animation():
 	resurrecting_area.queue_free()
 	player.switch_bodies(resurrecting_character)
 	transition_requested.emit(self, PlayerState.State.IDLE)
+	EventManager.has_resurrected = true

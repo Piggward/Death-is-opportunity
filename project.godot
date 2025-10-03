@@ -15,6 +15,10 @@ run/main_scene="uid://48vh8nt65n6k"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventManager="*res://global/event_manager.gd"
+
 [display]
 
 window/size/viewport_width=1728
@@ -67,5 +71,8 @@ special={
 2d_physics/layer_5="SoulArea"
 2d_physics/layer_6="PlayerHurtBox"
 2d_physics/layer_7="EnemyHurtBox"
+2d_physics/layer_8="Ground"
 2d_physics/layer_9="EnemyAttackLayer"
 2d_physics/layer_10="PlayerAttack"
+2d_physics/layer_11="ActivationPlatform"
+2d_physics/layer_12="CharacterArea"

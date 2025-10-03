@@ -23,5 +23,4 @@ func reset():
 		self.set_collision_layer_value(PLAYER_HURT_LAYER, true)
 		
 func take_damage(damage):
-	print("tkantewio")
 	character.take_damage(damage)

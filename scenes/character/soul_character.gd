@@ -22,5 +22,23 @@ func spawn_animation():
 		await animation_player.animation_finished
 	self.scale = Vector2(1, 1)
 	
+func reset():
+	self.attack_area.monitoring = false
+	self.attack_area.monitorable = false
+	self.hurtbox_area.monitoring = false
+	self.hurtbox_area.monitorable = false
+	get_tree().get_first_node_in_group("SoulPanel").visible = true
+	
 func can_special():
 	return soul_area.get_overlapping_areas().size() > 0
+	
+
+
+func _on_soul_area_area_entered(area):
+	EventManager.can_resurrect.emit(true)
+	pass # Replace with function body.
+
+
+func _on_soul_area_area_exited(area):
+	EventManager.can_resurrect.emit(false)
+	pass # Replace with function body.

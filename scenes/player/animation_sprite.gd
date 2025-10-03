@@ -12,6 +12,8 @@ func idle():
 	
 func die():
 	play_animation("die")
+	await animation_finished
+	set_frame_progress(1.0)
 	
 func damage():
 	play_animation("dmg")

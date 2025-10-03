@@ -8,12 +8,16 @@ func enter() -> void:
 	player.character_sprite.die()
 	player.velocity = Vector2.ZERO
 	await player.character_sprite.animation_finished
-	var area: RessurectableArea = RESURRECTABLE_AREA.instantiate()
-	player.character.attack_area.monitoring = false
-	area.character = player.character
-	area.global_position = player.character.global_position
-	get_tree().root.add_child(area)
-	player.character.reparent(area)
+	if player.character.can_be_resurrected:
+		var area: RessurectableArea = RESURRECTABLE_AREA.instantiate()
+		player.character.attack_area.monitoring = false
+		area.character = player.character
+		area.global_position = player.character.global_position
+		get_tree().root.add_child(area)
+		player.character.reparent(area)
+	else: 
+		player.character.reparent(get_tree().root)
+		player.character.fade()
 	
 	player.become_spirit()
 	

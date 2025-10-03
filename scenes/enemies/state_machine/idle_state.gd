@@ -1,8 +1,10 @@
 extends EnemyState
 
 func process(delta):
-	if enemy.aggro_area.get_overlapping_bodies().size() > 0 and enemy.aggro_area.get_overlapping_bodies()[0].character is not SoulCharacter:
-		transition_requested.emit(self, State.HUNT)
+	if enemy.aggro_area.get_overlapping_bodies().size() > 0:
+		var char = enemy.aggro_area.get_overlapping_bodies()[0].character 
+		if char is not SoulCharacter and not char.dead:
+			transition_requested.emit(self, EnemyState.State.HUNT)
 	pass
 		
 func enter() -> void:

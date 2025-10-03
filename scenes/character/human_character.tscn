@@ -6,6 +6,7 @@
 [node name="Human_Character" instance=ExtResource("1_rwgo6")]
 health = 20.0
 attack_cd = 1.0
+can_be_resurrected = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_nh6fe")
@@ -13,5 +14,5 @@ animation = &"die"
 frame = 6
 frame_progress = 1.0
 
-[node name="Resurrect_Position" type="Marker2D" parent="." index="3"]
+[node name="ResurrectMarker" parent="." index="4"]
 position = Vector2(-4, 1)
