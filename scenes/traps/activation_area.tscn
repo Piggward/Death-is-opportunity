@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd7ahm4id2558"]
+
+[ext_resource type="Script" uid="uid://dcmc17q5ief53" path="res://scenes/traps/activation_area.gd" id="1_a6cnt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr8wp"]
+size = Vector2(4, 3)
+
+[sub_resource type="Gradient" id="Gradient_flf07"]
+colors = PackedColorArray(0.9816934, 0.9816934, 0.9816934, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a6cnt"]
+gradient = SubResource("Gradient_flf07")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.043)
+
+[node name="ActivationArea" type="Area2D"]
+collision_layer = 1024
+collision_mask = 2048
+script = ExtResource("1_a6cnt")
+original_tile = Vector2(1, 13)
+changing_tile = Vector2(2, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_nr8wp")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-32, -32)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

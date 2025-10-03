@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_75vfm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -5)
-zoom = Vector2(5, 5)
+zoom = Vector2(6, 6)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")

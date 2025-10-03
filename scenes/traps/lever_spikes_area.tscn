@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs14mfsdngpmu"]
+
+[ext_resource type="Script" uid="uid://br826folfygfc" path="res://scenes/traps/lever_spikes_area.gd" id="1_fi65k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
+size = Vector2(13, 13)
+
+[sub_resource type="Gradient" id="Gradient_flf07"]
+colors = PackedColorArray(0.9816934, 0.9816934, 0.9816934, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k73cj"]
+gradient = SubResource("Gradient_flf07")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.043)
+
+[node name="LeverSpikesArea" type="Area2D"]
+collision_layer = 96
+collision_mask = 768
+script = ExtResource("1_fi65k")
+on = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k73cj")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(24, 16)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(33, 16)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(40, 15)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(48, 15)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(48, 23)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(48, 32)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(40, 32)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(41, 25)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(33, 24)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+position = Vector2(23, 32)
+
+[node name="Marker2D13" type="Marker2D" parent="."]
+position = Vector2(24, 24)
+
+[node name="Marker2D14" type="Marker2D" parent="."]
+position = Vector2(17, 24)
+
+[node name="Marker2D15" type="Marker2D" parent="."]
+position = Vector2(17, 32)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = SubResource("GradientTexture2D_k73cj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

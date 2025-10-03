@@ -14,6 +14,7 @@ func _ready():
 		
 func reset():
 	monitoring = false
+	monitorable = false
 	collision_layer = 0
 	collision_mask = 0
 	if not character.is_node_ready():
@@ -26,5 +27,6 @@ func reset():
 		self.set_collision_mask_value(ENEMY_HURT_LAYER, true)
 
 func _on_area_entered(area):
-	area.take_damage(character.damage)
+	if area is HurtboxArea:
+		area.take_damage(character.damage)
 	pass # Replace with function body.

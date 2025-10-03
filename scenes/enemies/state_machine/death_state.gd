@@ -6,6 +6,7 @@ func enter() -> void:
 	if enemy.character.can_be_resurrected:
 		var area: RessurectableArea = RESURRECTABLE_AREA.instantiate()
 		enemy.character.attack_area.monitoring = false
+		enemy.character.attack_area.monitorable = false
 		area.character = enemy.character
 		area.global_position = enemy.character.global_position
 		get_tree().root.add_child(area)
