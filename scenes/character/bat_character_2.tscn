@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccdiciqx88rm"]
+
+[ext_resource type="PackedScene" uid="uid://bfbp6adtn4o25" path="res://scenes/character/character.tscn" id="1_andcq"]
+[ext_resource type="SpriteFrames" uid="uid://dx2ll5ut4n356" path="res://scenes/enemies/bat/animations/bat_sprite_frame.tres" id="2_iq0ql"]
+
+[node name="BatCharacter" instance=ExtResource("1_andcq")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_iq0ql")
+animation = &"attack_down"

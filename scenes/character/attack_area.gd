@@ -13,6 +13,7 @@ func _ready():
 	reset()
 		
 func reset():
+	self.monitoring = false
 	collision_layer = 0
 	collision_mask = 0
 	if not character.is_node_ready():

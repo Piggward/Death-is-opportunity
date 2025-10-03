@@ -1,7 +1,8 @@
 class_name Enemy
 extends Area2D
 
-const BAT_CHARACTER = preload("uid://b1u3xumenb4st")
+const BAT_CHARACTER = preload("res://scenes/enemies/bat/bat_character.tscn")
+
 var character: Character
 @export var type: EnemyType
 @export var idle_area: Area2D
@@ -23,6 +24,7 @@ func _ready():
 	pass
 
 func _on_character_dead():
+	print("uhoh")
 	enemy_state_machine.current_state.dead()
 	
 func _process(delta):

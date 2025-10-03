@@ -25,6 +25,7 @@ func soul_animation():
 	player.character_sprite.special()
 	await player.character_sprite.animation_finished
 	player.character.visible = false
+	get_tree().get_first_node_in_group("SoulPanel").visible = false
 	resurrecting_character.resurrect()
 	await resurrecting_character.animated_sprite_2d.animation_finished
 	resurrecting_area.queue_free()

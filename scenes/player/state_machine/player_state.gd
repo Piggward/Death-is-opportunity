@@ -19,5 +19,6 @@ func process(delta):
 	pass
 	
 func dead():
+	print("someonedied")
 	if self.state != State.DEAD:
 		transition_requested.emit(self, State.DEAD)

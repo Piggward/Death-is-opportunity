@@ -44,8 +44,12 @@ func reset():
 		enemy = true
 	attack_area.reset()
 	hurtbox_area.reset()
+	self.z_index = 0
+	
 		
 func die():
+	print("Dying")
+	self.z_index = -1
 	dead = true
 	died.emit()
 	

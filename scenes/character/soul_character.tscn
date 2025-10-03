@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpbar0ooab80q"]
+[gd_scene load_steps=9 format=3 uid="uid://bpbar0ooab80q"]
 
 [ext_resource type="PackedScene" uid="uid://bfbp6adtn4o25" path="res://scenes/character/character.tscn" id="1_yon3b"]
 [ext_resource type="Script" uid="uid://c2k6f4lknlqdw" path="res://scenes/character/soul_character.gd" id="2_1bisg"]
@@ -6,6 +6,66 @@
 [ext_resource type="Script" uid="uid://cv575bnmmg5kl" path="res://scenes/player/state_machine/soul_special_state.gd" id="4_n0jjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqdcv"]
+
+[sub_resource type="Animation" id="Animation_n0jjx"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g051h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqdcv"]
+_data = {
+&"RESET": SubResource("Animation_g051h"),
+&"spawn": SubResource("Animation_n0jjx")
+}
 
 [node name="Soul" instance=ExtResource("1_yon3b")]
 script = ExtResource("2_1bisg")
@@ -16,16 +76,9 @@ has_special = true
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_n0jjx")
-animation = &"special"
+animation = &"spawn"
 autoplay = "idle"
-frame = 11
-frame_progress = 1.0
-
-[node name="AttackArea" parent="." index="1"]
-visible = false
-
-[node name="CollisionShape2D" parent="AttackArea" index="0"]
-visible = false
+frame_progress = 0.8421316
 
 [node name="SoulArea" type="Area2D" parent="." index="3"]
 collision_layer = 16
@@ -38,3 +91,8 @@ shape = SubResource("RectangleShape2D_cqdcv")
 [node name="SpecialState" type="Node" parent="." index="4"]
 script = ExtResource("4_n0jjx")
 state = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_cqdcv")
+}

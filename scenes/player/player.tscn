@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpkiscg7i344d"]
+[gd_scene load_steps=9 format=3 uid="uid://bpkiscg7i344d"]
 
 [ext_resource type="Script" uid="uid://c4iy80er43x2b" path="res://scenes/player/character_body_2d.gd" id="1_lvxji"]
 [ext_resource type="PackedScene" uid="uid://bpbar0ooab80q" path="res://scenes/character/soul_character.tscn" id="2_dovo2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://crq8uuynvtb8" path="res://scenes/player/state_machine/walk_state.gd" id="5_75vfm"]
 [ext_resource type="Script" uid="uid://bucyy7d7dlpf" path="res://scenes/player/state_machine/idle_state.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://dbvw2w65ne5s2" path="res://scenes/player/state_machine/attack_state.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://caxmia3vhf5yi" path="res://scenes/player/state_machine/dead_state.gd" id="7_0owmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
 size = Vector2(6, 6)
@@ -24,12 +25,6 @@ zoom = Vector2(5, 5)
 
 [node name="Soul" parent="." instance=ExtResource("2_dovo2")]
 
-[node name="AttackArea" parent="Soul" index="1"]
-visible = true
-
-[node name="CollisionShape2D" parent="Soul/AttackArea" index="0"]
-visible = true
-
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")
 initial_state = NodePath("IdleState")
@@ -44,6 +39,10 @@ state = 2
 [node name="AttackState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_75vfm")
 state = 1
+
+[node name="DeadState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("7_0owmy")
+state = 4
 
 [connection signal="child_entered_tree" from="PlayerStateMachine" to="PlayerStateMachine" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="PlayerStateMachine" to="PlayerStateMachine" method="_on_child_exiting_tree"]

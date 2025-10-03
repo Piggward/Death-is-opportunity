@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+const SOUL_CHARACTER = preload("uid://bpbar0ooab80q")
+
 var run_speed: float
 var character_sprite: AnimatedSprite2D
 @export var character: Character
@@ -8,6 +10,7 @@ var special_playing = false
 @onready var player_state_machine = $PlayerStateMachine
 var attack_cd = false
 const ATTACK_CD = 0.4
+signal has_become_spirit
 
 func switch_bodies(new: Character):
 	var old = character
@@ -21,6 +24,15 @@ func switch_bodies(new: Character):
 	run_speed = character.movement_speed
 	character_sprite = character.animated_sprite_2d
 	character.reset()
+	
+func become_spirit():
+	var soul = SOUL_CHARACTER.instantiate()
+	self.character = soul
+	add_child(soul)
+	await soul.spawn_animation()
+	self.global_position = soul.global_position
+	has_become_spirit.emit()
+	
 	
 func on_attack():
 	attack_cd = true
