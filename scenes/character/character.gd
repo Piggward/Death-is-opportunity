@@ -10,6 +10,7 @@ extends Node2D
 @export var attack_cd: float
 @export var pre_attack_cd: float
 @export var set_dead: bool
+@export var ranged_attack: bool
 @export var can_be_resurrected: bool = true
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attack_area = $AttackArea

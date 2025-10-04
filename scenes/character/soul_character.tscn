@@ -70,13 +70,10 @@ _data = {
 
 [node name="Soul" instance=ExtResource("1_yon3b")]
 script = ExtResource("2_1bisg")
-damage = null
+damage = 0.0
 flying = true
-can_attack = null
+can_attack = false
 has_special = true
-attack_cd = null
-pre_attack_cd = null
-set_dead = null
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 1

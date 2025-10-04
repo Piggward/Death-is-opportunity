@@ -16,7 +16,7 @@ func switch_bodies(new: Character):
 	self.global_position = new.global_position
 	new.reparent(self)
 	character = new
-	get_tree().get_first_node_in_group("SoulPanel").visible = false
+	get_tree().get_first_node_in_group("SoulPanel").start_fade_out()
 	old.queue_free()
 	set_character()
 	
@@ -48,6 +48,7 @@ func become_spirit():
 	var soul = soul_character.instantiate()
 	self.character = soul
 	add_child(soul)
+	get_tree().get_first_node_in_group("SoulPanel").start_fade_in()
 	await soul.spawn_animation()
 	self.global_position = soul.global_position
 	soul.position = Vector2.ZERO

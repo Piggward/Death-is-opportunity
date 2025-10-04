@@ -27,7 +27,6 @@ func reset():
 	self.attack_area.monitorable = false
 	self.hurtbox_area.monitoring = false
 	self.hurtbox_area.monitorable = false
-	get_tree().get_first_node_in_group("SoulPanel").visible = true
 	
 func can_special():
 	return soul_area.get_overlapping_areas().size() > 0
