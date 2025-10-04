@@ -34,7 +34,6 @@ func ranged_logic(delta):
 		enemy.animated_sprite.walk_up()
 	else:
 		enemy.animated_sprite.walk_down()
-	print(distance.length())
 	if (distance.length() <= 60 * enemy.character.scale.y) and (distance.length() >= 50 * enemy.character.scale.y):
 		transition_requested.emit(self, EnemyState.State.ATTACK)
 	else:
@@ -43,6 +42,7 @@ func ranged_logic(delta):
 		enemy.global_position = clamp_point(enemy.global_position - move)
 		
 func enter() -> void:
+	EventManager.enemy_hunting.emit()
 	aggro_area = enemy.aggro_area
 	ranged = enemy.character.ranged_attack
 	if enemy.type == enemy.EnemyType.BAT:

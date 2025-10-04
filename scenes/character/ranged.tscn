@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2s2i570s6wet"]
+
+[ext_resource type="Script" uid="uid://dithq8dkkul03" path="res://scenes/player/ranged.gd" id="1_6ohli"]
+[ext_resource type="Texture2D" uid="uid://cokpdh8wxekj4" path="res://art/tilemap/0x72_DungeonTilesetII_v1.7.png" id="2_stwua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bwqe"]
+atlas = ExtResource("2_stwua")
+region = Rect2(368, 320, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_535fl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bwqe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ohli"]
+size = Vector2(6.666666, 6.666666)
+
+[sub_resource type="Gradient" id="Gradient_6ohli"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_stwua"]
+gradient = SubResource("Gradient_6ohli")
+width = 10
+height = 10
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0)
+
+[node name="Ranged" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_6ohli")
+speed = 35.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_535fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.3333333)
+shape = SubResource("RectangleShape2D_6ohli")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 3.3333333)
+texture = SubResource("GradientTexture2D_stwua")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

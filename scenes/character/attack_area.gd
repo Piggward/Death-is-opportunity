@@ -7,14 +7,16 @@ const ENEMY_ATTACK_LAYER = 9
 const PLAYER_ATTACK_LAYER = 10
 const ENEMY_HURT_LAYER = 7
 const PLAYER_HURT_LAYER = 6
+@onready var collision_shape_2d = $CollisionShape2D
 
 
 func _ready():
 	reset()
 		
 func reset():
-	monitoring = false
-	monitorable = false
+	monitoring = true
+	monitorable = true
+	disable()
 	collision_layer = 0
 	collision_mask = 0
 	if not character.is_node_ready():
@@ -25,8 +27,17 @@ func reset():
 	else:
 		self.set_collision_layer_value(PLAYER_ATTACK_LAYER, true)
 		self.set_collision_mask_value(ENEMY_HURT_LAYER, true)
+		
+func disable():
+	collision_shape_2d.disabled = true
+	
+func enable(): 
+	collision_shape_2d.disabled = false
+		
 
 func _on_area_entered(area):
+	if not area.monitoring and not area.monitorable:
+		return
 	if area is HurtboxArea:
 		area.take_damage(character.damage)
 	pass # Replace with function body.

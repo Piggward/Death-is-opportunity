@@ -23,12 +23,13 @@ animations = [{
 movement_speed = 30.0
 damage = 5.0
 flying = true
-attack_cd = 1.5
+health = 30.0
+attack_cd = 0.75
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -7)
 sprite_frames = ExtResource("2_31q00")
-animation = &"walk_up"
+animation = &"attack_down"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="1"]
 texture_filter = 1

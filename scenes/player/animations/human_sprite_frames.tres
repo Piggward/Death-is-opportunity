@@ -1,25 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=101 format=3 uid="uid://dgeuyfvot14de"]
+[gd_resource type="SpriteFrames" load_steps=97 format=3 uid="uid://dgeuyfvot14de"]
 
 [ext_resource type="Texture2D" uid="uid://com0qiq4qjytw" path="res://scenes/player/animations/HumanAttack.png" id="1_do6sj"]
 [ext_resource type="Texture2D" uid="uid://dwuo3t77eul0p" path="res://scenes/player/animations/HumanIdle.png" id="1_ej260"]
 [ext_resource type="Texture2D" uid="uid://dk4rqt67e6416" path="res://scenes/player/animations/HumanSpinDie.png" id="2_do6sj"]
 [ext_resource type="Texture2D" uid="uid://dah40qf6bjs2g" path="res://scenes/player/animations/HumanDmg.png" id="3_ha2kt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do6sj"]
-atlas = ExtResource("1_do6sj")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lq7yy"]
-atlas = ExtResource("1_do6sj")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q51eg"]
-atlas = ExtResource("1_do6sj")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_20uub"]
-atlas = ExtResource("1_do6sj")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ha2kt"]
 atlas = ExtResource("1_do6sj")
@@ -390,23 +374,6 @@ region = Rect2(96, 64, 32, 32)
 
 [resource]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_do6sj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lq7yy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q51eg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_20uub")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 15.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ha2kt")

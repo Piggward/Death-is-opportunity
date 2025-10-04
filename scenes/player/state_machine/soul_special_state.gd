@@ -31,6 +31,7 @@ func process(delta):
 		await soul_animation()
 		
 func soul_animation():
+	var og_pos = player.global_position
 	var tween = get_tree().create_tween()
 	tween.tween_property(player, "global_position", resurrecting_character.global_position + resurrecting_character.resurrect_marker.position, 0.7)
 	tween.play()
@@ -40,6 +41,6 @@ func soul_animation():
 	resurrecting_character.resurrect()
 	await resurrecting_character.animated_sprite_2d.animation_finished
 	resurrecting_area.queue_free()
-	player.switch_bodies(resurrecting_character)
+	player.switch_bodies(resurrecting_character, og_pos)
 	transition_requested.emit(self, PlayerState.State.IDLE)
 	EventManager.has_resurrected = true

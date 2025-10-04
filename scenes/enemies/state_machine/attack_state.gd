@@ -21,14 +21,12 @@ func attack():
 	var distance = player.global_position - enemy.global_position 
 	var dir = "down" if distance.y > 0 else "up"
 	character.attack_area.scale = Vector2(1 if not character.animated_sprite_2d.is_flipped_h() else -1, 1 if dir == "down" else -1)
-	character.attack_area.monitoring = true
-	character.attack_area.monitorable = true
+	character.attack_area.enable()
 	character.animated_sprite_2d.attack(dir)
 	if character.ranged_attack:
 		character.spawn_ranged(distance.normalized())
 	await character.animated_sprite_2d.animation_finished
-	character.attack_area.monitoring = false
-	character.attack_area.monitorable = false
+	character.attack_area.disable()
 	attacking = false
 	await get_tree().create_timer(character.attack_cd).timeout
 	attack_cd = false
@@ -39,8 +37,7 @@ func process(delta) -> void:
 		return
 	
 func exit(): 
-	character.attack_area.monitoring = false
-	character.attack_area.monitorable = false
+	character.attack_area.disable()
 	
 func finish():
 	if enemy.aggro_area.get_overlapping_bodies().size() > 0:

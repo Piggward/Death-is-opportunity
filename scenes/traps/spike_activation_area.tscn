@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://brnnclv8jndod"]
+
+[ext_resource type="PackedScene" uid="uid://cd7ahm4id2558" path="res://scenes/traps/activation_area.tscn" id="1_33b4j"]
+[ext_resource type="Script" uid="uid://cqgj1l2loomar" path="res://scenes/traps/spike_activation_area.gd" id="2_w5bte"]
+
+[node name="SpikeActivationArea" instance=ExtResource("1_33b4j")]
+script = ExtResource("2_w5bte")
+on = false

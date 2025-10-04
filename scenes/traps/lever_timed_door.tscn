@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcfu6hpgwxlbx"]
+
+[ext_resource type="PackedScene" uid="uid://cd7ahm4id2558" path="res://scenes/traps/activation_area.tscn" id="1_a4by5"]
+[ext_resource type="Script" uid="uid://beq38gl0sbosb" path="res://scenes/traps/lever_timed_door_trigger.gd" id="2_8hoei"]
+
+[node name="LeverTimedDoor" instance=ExtResource("1_a4by5")]
+collision_layer = 96
+collision_mask = 768
+script = ExtResource("2_8hoei")
+original_tile = Vector2(0, 0)
+changing_tile = Vector2(0, 0)
+time = 0.0
+on = false

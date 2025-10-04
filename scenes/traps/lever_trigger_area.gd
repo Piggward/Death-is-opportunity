@@ -32,7 +32,7 @@ func _on_area_entered(area):
 	if cd:
 		return
 	on = !on
-	var cd = true
+	cd = true
 	change()
 	bridge._rotate(on)
 	await get_tree().create_timer(2).timeout

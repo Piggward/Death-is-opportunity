@@ -10,16 +10,16 @@
 [ext_resource type="Script" uid="uid://cv575bnmmg5kl" path="res://scenes/player/state_machine/soul_special_state.gd" id="8_qek5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vfm"]
-size = Vector2(6, 6)
+size = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("character")]
 collision_layer = 2
-collision_mask = 129
+collision_mask = 16515
 script = ExtResource("1_lvxji")
 character = NodePath("Human_Character")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_75vfm")
 
 [node name="Camera2D" type="Camera2D" parent="."]

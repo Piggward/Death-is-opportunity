@@ -22,11 +22,12 @@ func spawn_animation():
 		await animation_player.animation_finished
 	self.scale = Vector2(1, 1)
 	
-func reset():
+func reset(value):
 	self.attack_area.monitoring = false
 	self.attack_area.monitorable = false
 	self.hurtbox_area.monitoring = false
 	self.hurtbox_area.monitorable = false
+	self.enemy = false
 	
 func can_special():
 	return soul_area.get_overlapping_areas().size() > 0

@@ -20,6 +20,7 @@ script = ExtResource("1_38ino")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_lbrxf")
+debug_color = Color(0.796706, 0.3627974, 0.57672405, 0.41960785)
 
 [node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_8e3ao")

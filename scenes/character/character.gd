@@ -45,9 +45,8 @@ func take_damage(damage):
 func spawn_ranged(dir):
 	pass
 		
-func reset():
-	if get_parent() is Enemy:
-		enemy = true
+func reset(is_enemy):
+	enemy = is_enemy
 	attack_area.reset()
 	hurtbox_area.reset()
 	dead = false
@@ -65,6 +64,9 @@ func fade():
 	await tween.finished
 	print("free")
 	self.queue_free()
+	
+func _process(delta):
+	self.global_rotation = 0
 	
 func special():
 	pass

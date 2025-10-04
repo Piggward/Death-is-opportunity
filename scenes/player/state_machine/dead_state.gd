@@ -10,8 +10,7 @@ func enter() -> void:
 	await player.character_sprite.animation_finished
 	if player.character.can_be_resurrected:
 		var area: RessurectableArea = RESURRECTABLE_AREA.instantiate()
-		player.character.attack_area.monitoring = false
-		player.character.attack_area.monitorable = false
+		player.character.attack_area.disable()
 		area.character = player.character
 		area.global_position = player.character.global_position
 		get_tree().root.add_child(area)
