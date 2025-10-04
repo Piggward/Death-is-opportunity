@@ -24,6 +24,8 @@ func attack():
 	character.attack_area.monitoring = true
 	character.attack_area.monitorable = true
 	character.animated_sprite_2d.attack(dir)
+	if character.ranged_attack:
+		character.spawn_ranged(distance.normalized())
 	await character.animated_sprite_2d.animation_finished
 	character.attack_area.monitoring = false
 	character.attack_area.monitorable = false

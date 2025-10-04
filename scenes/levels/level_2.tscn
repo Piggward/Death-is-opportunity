@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://ch3fwi4ecijoj"]
+[gd_scene load_steps=20 format=4 uid="uid://ch3fwi4ecijoj"]
 
 [ext_resource type="PackedScene" uid="uid://48vh8nt65n6k" path="res://Level1.tscn" id="1_j2425"]
 [ext_resource type="Texture2D" uid="uid://xmnq6xaekert" path="res://art/tilemap/Props.png" id="2_qpwj6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cokpdh8wxekj4" path="res://art/tilemap/0x72_DungeonTilesetII_v1.7.png" id="3_ibugp"]
 [ext_resource type="Texture2D" uid="uid://cxmas1xm2xset" path="res://art/atlas_walls_high-16x32.png" id="3_ra442"]
 [ext_resource type="Script" uid="uid://btsnqx842w461" path="res://scenes/traps/lever_trigger_area.gd" id="4_fiq81"]
+[ext_resource type="PackedScene" uid="uid://cp78hebwudwri" path="res://scenes/environment/room_area.tscn" id="8_3p04p"]
+[ext_resource type="PackedScene" uid="uid://cipldaarsv76f" path="res://scenes/enemies/enemy.tscn" id="8_8qukl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d21ai"]
 rough = true
@@ -2185,6 +2187,12 @@ size = Vector2(5, 94)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l37oo"]
 size = Vector2(12, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsp8v"]
+size = Vector2(43, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt80m"]
+size = Vector2(179, 87.5)
+
 [node name="Level2" instance=ExtResource("1_j2425")]
 
 [node name="Sprite2D" parent="." index="0"]
@@ -2206,7 +2214,7 @@ tile_set = SubResource("TileSet_qsp8v")
 tile_map_data = PackedByteArray("AABGACYAAAABAA0AAAA3ACYAAAASABsAAAA3ACcAAAASABsAAABBAMv/AAAFAA0AAAA8AMf/AAABAA0AAABeAOj/AAABAA0AAABdANz/AAAFAA0AAAA5AOf/AAAFAA0AAAA=")
 
 [node name="Player" parent="." index="9"]
-position = Vector2(540, -333)
+position = Vector2(533, -388)
 
 [node name="Bridge" type="Area2D" parent="." index="14"]
 position = Vector2(540, -256)
@@ -2410,6 +2418,36 @@ script = ExtResource("4_fiq81")
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_l37oo")
 
+[node name="RangedRoom" parent="." index="16" instance=ExtResource("8_3p04p")]
+position = Vector2(537, -432)
+
+[node name="CollisionShape2D" parent="RangedRoom" index="0"]
+visible = false
+
+[node name="Darkness" parent="RangedRoom" index="1"]
+visible = false
+
+[node name="IdleArea" type="Area2D" parent="RangedRoom" index="2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangedRoom/IdleArea" index="0"]
+position = Vector2(-2.5, -7.5)
+shape = SubResource("RectangleShape2D_qsp8v")
+
+[node name="AggroArea" type="Area2D" parent="RangedRoom" index="3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangedRoom/AggroArea" index="0"]
+position = Vector2(4.5, 12.25)
+shape = SubResource("RectangleShape2D_nt80m")
+
+[node name="Enemy" parent="RangedRoom" index="4" node_paths=PackedStringArray("idle_area", "aggro_area") instance=ExtResource("8_8qukl")]
+type = 1
+idle_area = NodePath("../IdleArea")
+aggro_area = NodePath("../AggroArea")
+
 [connection signal="area_entered" from="Bridge" to="Bridge" method="_on_area_entered"]
 [connection signal="body_entered" from="Bridge" to="Bridge" method="_on_body_entered"]
 [connection signal="body_exited" from="Bridge" to="Bridge" method="_on_body_exited"]
@@ -2422,3 +2460,5 @@ shape = SubResource("RectangleShape2D_l37oo")
 [editable path="Room1Area/LeverSpikesArea"]
 [editable path="Room1Area/Enemy"]
 [editable path="Room1Area/ActivationArea"]
+[editable path="RangedRoom"]
+[editable path="RangedRoom/Enemy"]

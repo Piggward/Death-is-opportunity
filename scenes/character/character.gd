@@ -41,6 +41,9 @@ func take_damage(damage):
 		die()
 		return
 	animated_sprite_2d.damage()
+	
+func spawn_ranged(dir):
+	pass
 		
 func reset():
 	if get_parent() is Enemy:
