@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://ch3fwi4ecijoj"]
+[gd_scene load_steps=40 format=4 uid="uid://ch3fwi4ecijoj"]
 
 [ext_resource type="PackedScene" uid="uid://48vh8nt65n6k" path="res://Level1.tscn" id="1_j2425"]
 [ext_resource type="Texture2D" uid="uid://xmnq6xaekert" path="res://art/tilemap/Props.png" id="2_qpwj6"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dcfu6hpgwxlbx" path="res://scenes/traps/lever_timed_door.tscn" id="10_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://cd7ahm4id2558" path="res://scenes/traps/activation_area.tscn" id="11_nt80m"]
 [ext_resource type="AudioStream" uid="uid://csnnofbp8a38b" path="res://sounds/bridge_moving.mp3" id="11_tv7cl"]
+[ext_resource type="AudioStream" uid="uid://cwgrnpin62wae" path="res://sounds/One Sly Move.mp3" id="14_r88tb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d21ai"]
 rough = true
@@ -2202,7 +2203,10 @@ animations = [{
 size = Vector2(2.0204468, 94)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sibr7"]
-size = Vector2(20, 3.6096344)
+size = Vector2(20, 6.4497986)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkn2k"]
+size = Vector2(20, 5.029724)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l37oo"]
 size = Vector2(12, 14)
@@ -2265,7 +2269,7 @@ z_index = -1
 tile_map_data = PackedByteArray("AABGACYAAAABAA0AAAA3ACYAAAASABsAAAA3ACcAAAASABsAAAA8AMf/AAABAA0AAABdANz/AAAGAA0AAABNAM3/AAAGAA0AAAA9ANn/AAAFAA0AAABgAOn/AAABAA0AAAA=")
 
 [node name="Player" parent="." index="9"]
-position = Vector2(557, -157)
+position = Vector2(556, -149)
 
 [node name="Human_Character" parent="Player" index="3"]
 can_be_resurrected = true
@@ -2572,22 +2576,21 @@ shape = SubResource("RectangleShape2D_fiq81")
 position = Vector2(7.1003904, 0)
 shape = SubResource("RectangleShape2D_fiq81")
 
-[node name="MovingCollisions" type="StaticBody2D" parent="BridgeRoom/Bridge" index="3"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BridgeRoom/Bridge" index="3"]
+stream = ExtResource("11_tv7cl")
+
+[node name="Move" type="StaticBody2D" parent="BridgeRoom/Bridge" index="4"]
+position = Vector2(630.5158, 0)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BridgeRoom/Bridge/MovingCollisions" index="0"]
-position = Vector2(0, 48.99278)
+[node name="Move" type="CollisionShape2D" parent="BridgeRoom/Bridge/Move" index="0"]
+position = Vector2(0.710022, -48.992783)
 shape = SubResource("RectangleShape2D_sibr7")
-disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BridgeRoom/Bridge/MovingCollisions" index="1"]
-position = Vector2(0, -48.99279)
-shape = SubResource("RectangleShape2D_sibr7")
-disabled = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BridgeRoom/Bridge" index="4"]
-stream = ExtResource("11_tv7cl")
+[node name="Move2" type="CollisionShape2D" parent="BridgeRoom/Bridge/Move" index="1"]
+position = Vector2(0, 48.282745)
+shape = SubResource("RectangleShape2D_lkn2k")
 
 [node name="LeverTriggerArea" type="Area2D" parent="BridgeRoom" index="3"]
 position = Vector2(492, -308)
@@ -2714,6 +2717,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WargRoom/AggroArea" index="0"]
 position = Vector2(-116.5, 84)
 shape = SubResource("RectangleShape2D_v8d84")
+
+[node name="Music" parent="." index="17"]
+stream = ExtResource("14_r88tb")
 
 [connection signal="area_entered" from="RangedRoom/WinArea2D" to="RangedRoom/WinArea2D" method="_on_area_entered"]
 [connection signal="body_entered" from="RangedRoom/WinArea2D" to="RangedRoom/WinArea2D" method="_on_body_entered"]

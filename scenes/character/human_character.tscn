@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b1dcm6x8p7rsw"]
+[gd_scene load_steps=54 format=3 uid="uid://b1dcm6x8p7rsw"]
 
 [ext_resource type="PackedScene" uid="uid://bfbp6adtn4o25" path="res://scenes/character/character.tscn" id="1_rwgo6"]
 [ext_resource type="Texture2D" uid="uid://dwuo3t77eul0p" path="res://scenes/player/animations/HumanIdle.png" id="2_nh6fe"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dk4rqt67e6416" path="res://scenes/player/animations/HumanSpinDie.png" id="3_ejy0y"]
 [ext_resource type="Texture2D" uid="uid://mxy3eoaia23i" path="res://scenes/player/animations/HumanWalk.png" id="3_r35rs"]
 [ext_resource type="Texture2D" uid="uid://dah40qf6bjs2g" path="res://scenes/player/animations/HumanDmg.png" id="4_4avob"]
+[ext_resource type="AudioStream" uid="uid://v1dbch51qgtr" path="res://sounds/human_die.mp3" id="7_5foqe"]
+[ext_resource type="AudioStream" uid="uid://v3cplgmfvnsc" path="res://sounds/human_become.mp3" id="8_trqvy"]
+[ext_resource type="AudioStream" uid="uid://c7xuly826kqtg" path="res://sounds/human_attack.mp3" id="9_r24g1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r35rs"]
 atlas = ExtResource("2_r35rs")
@@ -361,3 +364,12 @@ position = Vector2(4.7248383, 4.7248383)
 
 [node name="ResurrectMarker" parent="." index="4"]
 position = Vector2(-4, 1)
+
+[node name="die" parent="." index="5"]
+stream = ExtResource("7_5foqe")
+
+[node name="become" parent="." index="6"]
+stream = ExtResource("8_trqvy")
+
+[node name="attack" parent="." index="7"]
+stream = ExtResource("9_r24g1")

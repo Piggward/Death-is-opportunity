@@ -19,6 +19,7 @@ func attack(dir):
 	character.animated_sprite_2d.attack(dir)
 	if character.ranged_attack:
 		character.spawn_ranged(player.current_direction.normalized())
+	character.attack_audio.play()
 	await character.animated_sprite_2d.animation_finished
 	character.attack_area.disable()
 	attack_cd = true

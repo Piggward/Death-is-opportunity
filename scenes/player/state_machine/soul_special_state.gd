@@ -36,6 +36,7 @@ func soul_animation():
 	tween.tween_property(player, "global_position", resurrecting_character.global_position + resurrecting_character.resurrect_marker.position, 0.7)
 	tween.play()
 	player.character_sprite.special()
+	player.character.die_audio.play()
 	await player.character_sprite.animation_finished
 	player.character.visible = false
 	resurrecting_character.resurrect()

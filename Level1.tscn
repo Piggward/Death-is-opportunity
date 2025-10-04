@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=4 uid="uid://48vh8nt65n6k"]
+[gd_scene load_steps=136 format=4 uid="uid://48vh8nt65n6k"]
 
 [ext_resource type="Script" uid="uid://g6ww2bw4dsqm" path="res://scenes/levels/level_2.gd" id="1_fjxbk"]
 [ext_resource type="Texture2D" uid="uid://dlvydllk7h4u7" path="res://icon.svg" id="1_na6ls"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cipldaarsv76f" path="res://scenes/enemies/enemy.tscn" id="16_3fc7d"]
 [ext_resource type="PackedScene" uid="uid://cd7ahm4id2558" path="res://scenes/traps/activation_area.tscn" id="17_chykk"]
 [ext_resource type="Script" uid="uid://fuqablf6tcdc" path="res://scenes/environment/transition_area_2d.gd" id="17_na6ls"]
+[ext_resource type="AudioStream" uid="uid://cwgrnpin62wae" path="res://sounds/One Sly Move.mp3" id="19_3jhf0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta5nu"]
 texture = ExtResource("2_fjxbk")
@@ -3918,8 +3919,6 @@ can_be_resurrected = true
 
 [node name="AnimatedSprite2D" parent="ResurrectableArea/Human_Character" index="0"]
 sprite_frames = SubResource("SpriteFrames_k73cj")
-frame = 0
-frame_progress = 0.0
 script = SubResource("GDScript_rjqkl")
 
 [node name="CollisionShape2D" parent="ResurrectableArea/Human_Character/AttackArea" index="0"]
@@ -4033,6 +4032,9 @@ shape = SubResource("RectangleShape2D_g56ap")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1Area/StaticBody2D"]
 position = Vector2(-4, -42)
 shape = SubResource("RectangleShape2D_na6ls")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_3jhf0")
 
 [connection signal="body_entered" from="Room1Area/TransitionArea2D" to="Room1Area/TransitionArea2D" method="_on_body_entered"]
 

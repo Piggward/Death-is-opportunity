@@ -23,6 +23,7 @@ func attack():
 	character.attack_area.scale = Vector2(1 if not character.animated_sprite_2d.is_flipped_h() else -1, 1 if dir == "down" else -1)
 	character.attack_area.enable()
 	character.animated_sprite_2d.attack(dir)
+	character.attack_audio.play()
 	if character.ranged_attack:
 		character.spawn_ranged(distance.normalized())
 	await character.animated_sprite_2d.animation_finished

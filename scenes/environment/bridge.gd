@@ -3,30 +3,38 @@ extends Area2D
 var start_rotate = false
 var start_rotation = 0
 var clockwise: bool
-@onready var moving_collisions = $MovingCollisions
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 const BRIDGE_MOVING = preload("uid://csnnofbp8a38b")
 const BRIDGE_STOP = preload("uid://rbfbk4ncnonm")
+@onready var static_body_2d = $StaticBody2D
+@onready var move = $Move
+
+#func _ready():
+	#for child in static_body_2d.get_children():
+		#if child.name.contains("Move"):
+			#child.disabled = !child.disabled
+	#await get_tree().create_timer(1).timeout
+	#_ready()
+	
+
 
 func _rotate(value: bool):
 	start_rotate = true
+	move.position = Vector2.ZERO
 	audio_stream_player_2d.stream = BRIDGE_MOVING
 	audio_stream_player_2d.play()
-	for child: CollisionShape2D in moving_collisions.get_children():
-		child.disabled = true
-	start_rotation = self.rotation_degrees
 	clockwise = value;
+	
 	
 func _process(delta):
 	if start_rotate:
 		self.rotation_degrees += 20 * delta if clockwise else -20 * delta
 		if (self.rotation_degrees >= 90 and clockwise) or (self.rotation_degrees <= 0 and not clockwise):
-			start_rotate = false
+			self.rotation_degrees = 90 if clockwise else 0
 			audio_stream_player_2d.stream = BRIDGE_STOP
 			audio_stream_player_2d.play()
-			for child: CollisionShape2D in moving_collisions.get_children():
-				child.disabled = false
-			self.rotation_degrees = 90 if clockwise else 0
+			start_rotate = false
+			move.position = Vector2(9999, 9999)
 
 func _on_body_entered(body):
 	if not body is Player: 

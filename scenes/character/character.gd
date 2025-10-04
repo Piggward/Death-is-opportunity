@@ -18,6 +18,9 @@ extends Node2D
 var dead = false
 var enemy = false
 @onready var resurrect_marker = $ResurrectMarker
+@onready var become_audio = $become
+@onready var die_audio = $die
+@onready var attack_audio = $attack
 
 signal died
 
@@ -29,6 +32,7 @@ func _ready():
 
 func resurrect():
 	animated_sprite_2d.play_backwards("die")
+	become_audio.play()
 	
 func can_special():
 	return true
@@ -56,6 +60,7 @@ func die():
 	dead = true
 	attack_area.reset()
 	z_index = 0
+	die_audio.play()
 	died.emit()
 	
 func fade():

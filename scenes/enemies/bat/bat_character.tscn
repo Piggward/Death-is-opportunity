@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1u3xumenb4st"]
+[gd_scene load_steps=9 format=3 uid="uid://b1u3xumenb4st"]
 
 [ext_resource type="PackedScene" uid="uid://bfbp6adtn4o25" path="res://scenes/character/character.tscn" id="1_vnyva"]
 [ext_resource type="SpriteFrames" uid="uid://dx2ll5ut4n356" path="res://scenes/enemies/bat/animations/bat_sprite_frame.tres" id="2_31q00"]
 [ext_resource type="Texture2D" uid="uid://7284qw8x78vt" path="res://scenes/enemies/bat/animations/ShadowBatFly.png" id="3_31q00"]
+[ext_resource type="AudioStream" uid="uid://n64rs1roxi0b" path="res://sounds/bat_die.mp3" id="4_6nqwk"]
+[ext_resource type="AudioStream" uid="uid://c52p57c23mx0u" path="res://sounds/bat_become.mp3" id="5_wq8pe"]
+[ext_resource type="AudioStream" uid="uid://cytbwtvynpn8w" path="res://sounds/bat_attack.mp3" id="6_xtyxo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqqhv"]
 atlas = ExtResource("3_31q00")
@@ -45,3 +48,14 @@ position = Vector2(-0.5, -12)
 
 [node name="ResurrectMarker" parent="." index="5"]
 position = Vector2(0, -7)
+
+[node name="die" parent="." index="6"]
+stream = ExtResource("4_6nqwk")
+
+[node name="become" parent="." index="7"]
+stream = ExtResource("5_wq8pe")
+volume_db = 10.0
+
+[node name="attack" parent="." index="8"]
+stream = ExtResource("6_xtyxo")
+pitch_scale = 1.75

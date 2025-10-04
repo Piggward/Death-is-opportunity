@@ -11,6 +11,7 @@ var tween: Tween
 var attacking = false
 var current_direction: Vector2
 var on_bridge = false
+var stunned = false
 signal has_become_spirit
 @onready var collision_shape_2d = $CollisionShape2D
 
@@ -68,6 +69,8 @@ func take_damage():
 	character_sprite.damage()
 
 func _physics_process(delta):
+	if stunned:
+		return
 	var x_direction = Input.get_axis("left", "right")
 	var y_direction = Input.get_axis("up", "down")
 	current_direction = current_direction if Vector2(x_direction, y_direction) == Vector2.ZERO else Vector2(x_direction, y_direction)

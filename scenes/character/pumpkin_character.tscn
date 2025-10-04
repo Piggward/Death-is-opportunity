@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cuo84g045yji5"]
+[gd_scene load_steps=37 format=3 uid="uid://cuo84g045yji5"]
 
 [ext_resource type="PackedScene" uid="uid://bfbp6adtn4o25" path="res://scenes/character/character.tscn" id="1_ng8sw"]
 [ext_resource type="Script" uid="uid://cp2i1ybo372od" path="res://scenes/enemies/pumpkin/enemy_character.gd" id="2_37ejw"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://d0dyqtpe4j8c" path="res://scenes/enemies/pumpkin/PumpkinHorrorBaseDmg.png" id="5_37ejw"]
 [ext_resource type="Texture2D" uid="uid://cs8ygxgqivmkd" path="res://scenes/enemies/pumpkin/PumpkinHorrorBaseWalk.png" id="5_rxkfe"]
 [ext_resource type="Texture2D" uid="uid://cds743axtp7pr" path="res://scenes/enemies/pumpkin/PumpkinHorrorBaseIdleActivation.png" id="6_2uo3f"]
+[ext_resource type="AudioStream" uid="uid://tpjpu1p5obw1" path="res://sounds/pump_die.mp3" id="8_rxkfe"]
+[ext_resource type="AudioStream" uid="uid://5xxpbq6qldnp" path="res://sounds/pump_become.mp3" id="9_2uo3f"]
+[ext_resource type="AudioStream" uid="uid://cskwwr1gem4qd" path="res://sounds/pump_throw.mp3" id="10_ptfde"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptfde"]
 atlas = ExtResource("3_efysx")
@@ -269,3 +272,12 @@ ranged_attack = true
 sprite_frames = SubResource("SpriteFrames_flb5y")
 animation = &"dmg"
 autoplay = "idle"
+
+[node name="die" parent="." index="5"]
+stream = ExtResource("8_rxkfe")
+
+[node name="become" parent="." index="6"]
+stream = ExtResource("9_2uo3f")
+
+[node name="attack" parent="." index="7"]
+stream = ExtResource("10_ptfde")
