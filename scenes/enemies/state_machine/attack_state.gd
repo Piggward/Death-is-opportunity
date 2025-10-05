@@ -17,13 +17,13 @@ func attack():
 		return
 	attacking = true
 	attack_cd = true
-	await get_tree().create_timer(0.25).timeout
 	var distance = player.global_position - enemy.global_position 
 	var dir = "down" if distance.y > 0 else "up"
 	character.attack_area.scale = Vector2(1 if not character.animated_sprite_2d.is_flipped_h() else -1, 1 if dir == "down" else -1)
-	character.attack_area.enable()
 	character.animated_sprite_2d.attack(dir)
 	character.attack_audio.play()
+	await get_tree().create_timer(character.pre_attack_cd).timeout
+	character.attack_area.enable()
 	if character.ranged_attack:
 		character.spawn_ranged(distance.normalized())
 	await character.animated_sprite_2d.animation_finished

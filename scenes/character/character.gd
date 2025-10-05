@@ -19,6 +19,7 @@ var dead = false
 var enemy = false
 var should_be_dead = false
 var resurrecting = false
+var max_hp: float
 @onready var resurrect_marker = $ResurrectMarker
 @onready var become_audio = $become
 @onready var die_audio = $die
@@ -27,6 +28,7 @@ var resurrecting = false
 signal died
 
 func _ready():
+	max_hp = health
 	if get_parent() is Enemy:
 		enemy = true
 	if set_dead:
@@ -56,6 +58,7 @@ func spawn_ranged(dir):
 	pass
 		
 func reset(is_enemy):
+	health = max_hp
 	enemy = is_enemy
 	attack_area.reset()
 	hurtbox_area.reset()

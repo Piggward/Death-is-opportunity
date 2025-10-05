@@ -38,7 +38,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_n0jjx"]
 resource_name = "spawn"
-length = 0.8
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,7 +46,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.46666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -7.5)]
@@ -58,7 +58,7 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.46666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.25, 0.25), Vector2(0.7, 0.7)]
@@ -72,6 +72,7 @@ _data = {
 
 [node name="Soul" instance=ExtResource("1_yon3b")]
 script = ExtResource("2_1bisg")
+movement_speed = 60.0
 damage = 0.0
 flying = true
 can_attack = false
@@ -86,7 +87,7 @@ autoplay = "shadow"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("3_n0jjx")
-animation = &"spawn"
+animation = &"special"
 autoplay = "idle"
 frame = 11
 frame_progress = 1.0
