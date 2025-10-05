@@ -42,8 +42,8 @@ func _on_ranged_spawned():
 		tool_tip_container.visible = false
 	
 func _on_wrong_character(name: String):
-	tool_tip_container.visible = true
 	self.text = WRONG_CHARACTER + name.to_upper()
+	tool_tip_container.visible = true
 	await get_tree().create_timer(2).timeout
 	tool_tip_container.visible = false
 	self.text = ""

@@ -5,7 +5,7 @@ func process(delta):
 	var x_direction = Input.get_axis("left", "right")
 	var y_direction = Input.get_axis("up", "down")
 	
-	if Input.is_action_just_pressed("attack") and not player.attacking: 
+	if Input.is_action_just_pressed("attack") and not player.attacking and player.character.can_attack: 
 		transition_requested.emit(self, State.ATTACK)
 	if Input.is_action_just_pressed("special") and player.character.can_special():
 		transition_requested.emit(self, State.SPECIAL)
