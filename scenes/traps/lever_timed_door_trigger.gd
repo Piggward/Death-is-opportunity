@@ -16,6 +16,8 @@ const LEVER_ON_TILE = Vector2(5, 13)
 const LEVER_OFF_TILE = Vector2(6, 13)
 @export var on = false
 var cd = false
+@onready var door = $Door
+@onready var lever = $Button
 
 func _ready():
 	itemTileMap = get_tree().get_first_node_in_group("ItemTileMapLayer")
@@ -24,6 +26,7 @@ func _ready():
 func open_door():
 	var tile = (worldTileMap.local_to_map(door_marker.global_position));
 	worldTileMap.set_cell(tile, WORLDMAPLAYER, OPEN_DOOR_TILE, 0)
+	door.play()
 	
 func close_door():
 	var tile = (worldTileMap.local_to_map(door_marker.global_position));
@@ -34,7 +37,6 @@ func change():
 	
 	var tile = (itemTileMap.local_to_map(self.global_position * 2));
 	itemTileMap.set_cell(tile, ITEMMAPLAYER, lever_tile, 0)
-	
 	if on:
 		open_door()
 	else:

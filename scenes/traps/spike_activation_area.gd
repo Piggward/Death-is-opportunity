@@ -48,10 +48,21 @@ func change():
 		
 
 func _on_area_entered(area):
+	if on: 
+		return
+	if area.get_parent().flying:
+		return
+	on = true
 	change()
 	pass # Replace with function body.
 
 
 func _on_area_exited(area):
+	if not on:
+		return
+	for a in get_overlapping_areas():
+		if not a.get_parent().flying:
+			return
+	on = false
 	change()
 	pass # Replace with function body.

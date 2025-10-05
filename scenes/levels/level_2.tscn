@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://ch3fwi4ecijoj"]
+[gd_scene load_steps=45 format=4 uid="uid://ch3fwi4ecijoj"]
 
 [ext_resource type="PackedScene" uid="uid://48vh8nt65n6k" path="res://Level1.tscn" id="1_j2425"]
 [ext_resource type="Texture2D" uid="uid://xmnq6xaekert" path="res://art/tilemap/Props.png" id="2_qpwj6"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dcfu6hpgwxlbx" path="res://scenes/traps/lever_timed_door.tscn" id="10_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://cd7ahm4id2558" path="res://scenes/traps/activation_area.tscn" id="11_nt80m"]
 [ext_resource type="AudioStream" uid="uid://csnnofbp8a38b" path="res://sounds/bridge_moving.mp3" id="11_tv7cl"]
+[ext_resource type="AudioStream" uid="uid://bcqat7g2k1vej" path="res://sounds/door_open.mp3" id="14_ndlae"]
+[ext_resource type="AudioStream" uid="uid://bjl12kgcp1wj1" path="res://sounds/lever-pull.mp3" id="15_v8d84"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d21ai"]
 rough = true
@@ -2243,6 +2245,12 @@ size = Vector2(101, 78)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yj8c"]
 size = Vector2(71, 44.625)
 
+[sub_resource type="Gradient" id="Gradient_ndlae"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v8d84"]
+gradient = SubResource("Gradient_ndlae")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndlae"]
 size = Vector2(104, 120)
 
@@ -2272,7 +2280,7 @@ z_index = -1
 tile_map_data = PackedByteArray("AABGACYAAAABAA0AAAA3ACYAAAASABsAAAA3ACcAAAASABsAAAA8AMf/AAABAA0AAABdANz/AAAGAA0AAABNAM3/AAAGAA0AAAA9ANn/AAAFAA0AAABgAOn/AAABAA0AAABBAM3/AAASABsAAABFAM3/AAASABsAAAA=")
 
 [node name="Player" parent="." index="9"]
-position = Vector2(556, -154)
+position = Vector2(557, -155)
 
 [node name="Human_Character" parent="Player" index="3"]
 can_be_resurrected = true
@@ -2729,6 +2737,12 @@ time = 9.223372e+18
 [node name="Marker2D" parent="SideRoom/RoomArea/LeverTimedDoor" index="1"]
 position = Vector2(-319, 8)
 
+[node name="Door" parent="SideRoom/RoomArea/LeverTimedDoor" index="3"]
+stream = ExtResource("14_ndlae")
+
+[node name="Button" parent="SideRoom/RoomArea/LeverTimedDoor" index="4"]
+stream = ExtResource("15_v8d84")
+
 [node name="IdleArea2D" type="Area2D" parent="SideRoom" index="5"]
 position = Vector2(-28, 78)
 collision_layer = 0
@@ -2767,17 +2781,22 @@ position = Vector2(57, -4)
 shape = SubResource("RectangleShape2D_1yj8c")
 
 [node name="Darkness" parent="WargRoom" index="1"]
-visible = false
-position = Vector2(-102.00001, 66.25001)
-scale = Vector2(1.2773436, 277.5)
+position = Vector2(-116.99999, 84.00001)
+scale = Vector2(0.40624997, 208.00003)
 
-[node name="Enemy" parent="WargRoom" index="2" node_paths=PackedStringArray("idle_area", "aggro_area") instance=ExtResource("8_8qukl")]
+[node name="Darkness2" type="PointLight2D" parent="WargRoom" index="2"]
+position = Vector2(10.499981, -3.9999871)
+scale = Vector2(0.6054686, 31.999996)
+blend_mode = 1
+texture = SubResource("GradientTexture1D_v8d84")
+
+[node name="Enemy" parent="WargRoom" index="3" node_paths=PackedStringArray("idle_area", "aggro_area") instance=ExtResource("8_8qukl")]
 position = Vector2(-120, 132)
 type = 1
 idle_area = NodePath("../IdleArea")
 aggro_area = NodePath("../AggroArea")
 
-[node name="IdleArea" type="Area2D" parent="WargRoom" index="3"]
+[node name="IdleArea" type="Area2D" parent="WargRoom" index="4"]
 collision_layer = 0
 collision_mask = 0
 
@@ -2785,7 +2804,7 @@ collision_mask = 0
 position = Vector2(-117, 128)
 shape = SubResource("RectangleShape2D_ndlae")
 
-[node name="AggroArea" type="Area2D" parent="WargRoom" index="4"]
+[node name="AggroArea" type="Area2D" parent="WargRoom" index="5"]
 collision_layer = 0
 collision_mask = 2
 
