@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://ch3fwi4ecijoj"]
+[gd_scene load_steps=67 format=4 uid="uid://ch3fwi4ecijoj"]
 
 [ext_resource type="PackedScene" uid="uid://48vh8nt65n6k" path="res://Level1.tscn" id="1_j2425"]
 [ext_resource type="Texture2D" uid="uid://xmnq6xaekert" path="res://art/tilemap/Props.png" id="2_qpwj6"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://csnnofbp8a38b" path="res://sounds/bridge_moving.mp3" id="11_tv7cl"]
 [ext_resource type="AudioStream" uid="uid://bcqat7g2k1vej" path="res://sounds/door_open.mp3" id="14_ndlae"]
 [ext_resource type="AudioStream" uid="uid://bjl12kgcp1wj1" path="res://sounds/lever-pull.mp3" id="15_v8d84"]
+[ext_resource type="Texture2D" uid="uid://ctbl4nwg02wp5" path="res://art/WolfIdle.png" id="17_v8d84"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d21ai"]
 rough = true
@@ -26,13 +27,17 @@ texture_region_size = Vector2i(8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 7:1/0 = 0
 7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 8:1/0 = 0
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 13:1/0 = 0
 14:1/0 = 0
 15:1/0 = 0
@@ -2186,6 +2191,17 @@ size = Vector2(70, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbygb"]
 size = Vector2(11, 90)
 
+[sub_resource type="Gradient" id="Gradient_flf07"]
+colors = PackedColorArray(0.9816934, 0.9816934, 0.9816934, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a6cnt"]
+gradient = SubResource("Gradient_flf07")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.043)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ra442"]
 size = Vector2(14.20079, 99)
 
@@ -2216,11 +2232,11 @@ size = Vector2(20, 5.029724)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l37oo"]
 size = Vector2(12, 14)
 
-[sub_resource type="Gradient" id="Gradient_flf07"]
+[sub_resource type="Gradient" id="Gradient_v8d84"]
 colors = PackedColorArray(0.9816934, 0.9816934, 0.9816934, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a6cnt"]
-gradient = SubResource("Gradient_flf07")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gw1l3"]
+gradient = SubResource("Gradient_v8d84")
 width = 16
 height = 16
 fill = 1
@@ -2252,10 +2268,325 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_ndlae")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndlae"]
-size = Vector2(104, 120)
+size = Vector2(104, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8d84"]
 size = Vector2(103, 206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5niy6"]
+size = Vector2(87, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw1l3"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4se4"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sibr7"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkn2k"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbygb"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5niy6"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wikm6"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c1qw"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a10c"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx6s3"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d3nu"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ket"]
+atlas = ExtResource("17_v8d84")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xworo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw1l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkn2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbygb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5niy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ket")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8d84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw1l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkn2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbygb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5niy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ket")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.37
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gw1l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw1l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkn2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbygb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5niy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ket")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.5600000000000005
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4se4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw1l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkn2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbygb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5niy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ket")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.73
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sibr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw1l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkn2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbygb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5niy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ket")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lkn2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw1l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4se4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkn2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbygb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5niy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ket")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.35
+}]
 
 [node name="Level2" instance=ExtResource("1_j2425")]
 
@@ -2272,7 +2603,7 @@ tile_map_data = PackedByteArray("AAA2ABQAAQAKAAcAAAA2ABUAAQAKAAcAAAA2ABYAAQAKAAc
 
 [node name="PropsTileMap" parent="." index="3" groups=["PropsTileMap"]]
 z_index = -1
-tile_map_data = PackedByteArray("AABGACEAAAAOAAMAAABGACIAAAAOAAQAAABHACEAAAARAAMAAABHACIAAAARAAQAAABLACEAAAASAAMAAABLACIAAAASAAQAAABMACEAAAANAAMAAABMACIAAAANAAQAAABJACYAAAAbAAEAAAA7ACEAAAARAAMAAAA7ACIAAAARAAQAAAA8ACEAAAAOAAMAAAA8ACIAAAAOAAQAAABAACIAAAADAAYAAABAACMAAAADAAcAAABEACIAAAADAAYAAABEACMAAAADAAcAAABJACEAAAAXAAMAAABJACIAAAAXAAQAAABKACEAAAAYAAMAAABKACIAAAAYAAQAAAA4ACEAAAAXAAMAAAA4ACIAAAAXAAQAAAA5ACEAAAAYAAMAAAA5ACIAAAAYAAQAAAA4ACUAAAAbAAEAAAA4ACgAAAAbAAEAAABPACQAAAAEAAMAAABPACUAAAAEAAQAAABQACQAAAAFAAMAAABQACUAAAAFAAQAAABRACQAAAAWAAQAAABOACUAAAAVAAQAAABJACoAAAAHAAEAAABKACoAAAAIAAEAAAA/ACoAAAAHAAEAAABAACoAAAAIAAEAAABPACYAAAAUAAQAAABQACMAAAATAAQAAABOAMX/AAAXAAQAAAA8AMT/AAAOAAQAAABIAMP/AAAOAAQAAABNAMX/AAARAAQAAAA7AMT/AAARAAQAAAA4AMX/AAARAAQAAAA5AMX/AAAQAAQAAABOAMT/AAAXAAMAAABPAMT/AAAYAAMAAABPAMX/AAAYAAQAAABLAM3/AAAFAAMAAABLAM7/AAAFAAQAAABLAMv/AAAFAAMAAABLAMz/AAAFAAQAAABLAMn/AAAFAAMAAABLAMr/AAAFAAQAAABLAMf/AAAFAAMAAABLAMj/AAAFAAQAAABLAMX/AAAFAAMAAABLAMb/AAAFAAQAAABLAM//AAALAAEAAAA=")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_qsp8v")
 
 [node name="InteractivePropsMap" parent="." index="4"]
@@ -2280,7 +2611,7 @@ z_index = -1
 tile_map_data = PackedByteArray("AABGACYAAAABAA0AAAA3ACYAAAASABsAAAA3ACcAAAASABsAAAA8AMf/AAABAA0AAABdANz/AAAGAA0AAABNAM3/AAAGAA0AAAA9ANn/AAAFAA0AAABgAOn/AAABAA0AAABBAM3/AAASABsAAABFAM3/AAASABsAAAA=")
 
 [node name="Player" parent="." index="9"]
-position = Vector2(557, -155)
+position = Vector2(550, -158)
 
 [node name="Human_Character" parent="Player" index="3"]
 can_be_resurrected = true
@@ -2454,6 +2785,16 @@ position = Vector2(0, 50)
 
 [node name="Marker2D11" type="Marker2D" parent="RangedRoom/DestructableArea/Markers" index="10"]
 position = Vector2(0, 58)
+
+[node name="PointLight2D9" type="PointLight2D" parent="RangedRoom" index="9"]
+position = Vector2(95, -42)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D10" type="PointLight2D" parent="RangedRoom" index="10"]
+position = Vector2(-33, -58)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
 
 [node name="BridgeRoom" parent="." index="14" instance=ExtResource("8_3p04p")]
 collision_layer = 16384
@@ -2687,7 +3028,7 @@ shape = SubResource("RectangleShape2D_l37oo")
 
 [node name="PointLight2D" type="PointLight2D" parent="BridgeRoom/LeverTriggerArea" index="1"]
 energy = 0.5
-texture = SubResource("GradientTexture2D_a6cnt")
+texture = SubResource("GradientTexture2D_gw1l3")
 
 [node name="SideRoom" parent="." index="15" instance=ExtResource("8_3p04p")]
 position = Vector2(736, -257)
@@ -2773,6 +3114,21 @@ position = Vector2(36, 76)
 [node name="Marker2D" parent="SideRoom/ActivationArea" index="1"]
 position = Vector2(-24, -71)
 
+[node name="PointLight2D6" type="PointLight2D" parent="SideRoom" index="9"]
+position = Vector2(-72, -81)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D7" type="PointLight2D" parent="SideRoom" index="10"]
+position = Vector2(32, -1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D8" type="PointLight2D" parent="SideRoom" index="11"]
+position = Vector2(-16, -1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
 [node name="WargRoom" parent="." index="16" instance=ExtResource("8_3p04p")]
 position = Vector2(353, -300)
 
@@ -2781,12 +3137,14 @@ position = Vector2(57, -4)
 shape = SubResource("RectangleShape2D_1yj8c")
 
 [node name="Darkness" parent="WargRoom" index="1"]
-position = Vector2(-116.99999, 84.00001)
-scale = Vector2(0.40624997, 208.00003)
+visible = false
+position = Vector2(-116.99999, 76.500015)
+scale = Vector2(0.40624997, 223.00002)
 
 [node name="Darkness2" type="PointLight2D" parent="WargRoom" index="2"]
-position = Vector2(10.499981, -3.9999871)
-scale = Vector2(0.6054686, 31.999996)
+visible = false
+position = Vector2(14.000013, -11.999987)
+scale = Vector2(0.63281256, 47.999992)
 blend_mode = 1
 texture = SubResource("GradientTexture1D_v8d84")
 
@@ -2801,7 +3159,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WargRoom/IdleArea" index="0"]
-position = Vector2(-117, 128)
+position = Vector2(-117, 161.5)
 shape = SubResource("RectangleShape2D_ndlae")
 
 [node name="AggroArea" type="Area2D" parent="WargRoom" index="5"]
@@ -2811,6 +3169,251 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WargRoom/AggroArea" index="0"]
 position = Vector2(-116.5, 84)
 shape = SubResource("RectangleShape2D_v8d84")
+
+[node name="Area2D" parent="WargRoom" index="6" instance=ExtResource("9_r88tb")]
+position = Vector2(-148, 57)
+collision_layer = 96
+collision_mask = 768
+threshold = 11.0
+
+[node name="CollisionShape2D" parent="WargRoom/Area2D" index="0"]
+position = Vector2(23.5, -1)
+shape = SubResource("RectangleShape2D_5niy6")
+
+[node name="Marker2D" type="Marker2D" parent="WargRoom/Area2D/Markers" index="0"]
+position = Vector2(-16, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="WargRoom/Area2D/Markers" index="1"]
+position = Vector2(-9, -1)
+
+[node name="Marker2D3" type="Marker2D" parent="WargRoom/Area2D/Markers" index="2"]
+position = Vector2(-1, -1)
+
+[node name="Marker2D4" type="Marker2D" parent="WargRoom/Area2D/Markers" index="3"]
+position = Vector2(8, -1)
+
+[node name="Marker2D5" type="Marker2D" parent="WargRoom/Area2D/Markers" index="4"]
+position = Vector2(16, -1)
+
+[node name="Marker2D6" type="Marker2D" parent="WargRoom/Area2D/Markers" index="5"]
+position = Vector2(24, -1)
+
+[node name="Marker2D7" type="Marker2D" parent="WargRoom/Area2D/Markers" index="6"]
+position = Vector2(31, -1)
+
+[node name="Marker2D8" type="Marker2D" parent="WargRoom/Area2D/Markers" index="7"]
+position = Vector2(39, -1)
+
+[node name="Marker2D9" type="Marker2D" parent="WargRoom/Area2D/Markers" index="8"]
+position = Vector2(48, -1)
+
+[node name="Marker2D10" type="Marker2D" parent="WargRoom/Area2D/Markers" index="9"]
+position = Vector2(55, -1)
+
+[node name="Marker2D11" type="Marker2D" parent="WargRoom/Area2D/Markers" index="10"]
+position = Vector2(63, -1)
+
+[node name="Area2D2" parent="WargRoom" index="7" instance=ExtResource("9_r88tb")]
+position = Vector2(-132, 25)
+collision_layer = 96
+collision_mask = 768
+threshold = 11.0
+
+[node name="CollisionShape2D" parent="WargRoom/Area2D2" index="0"]
+position = Vector2(23.5, -1)
+shape = SubResource("RectangleShape2D_5niy6")
+
+[node name="Marker2D" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="0"]
+position = Vector2(-16, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="1"]
+position = Vector2(-9, -1)
+
+[node name="Marker2D3" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="2"]
+position = Vector2(-1, -1)
+
+[node name="Marker2D4" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="3"]
+position = Vector2(8, -1)
+
+[node name="Marker2D5" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="4"]
+position = Vector2(16, -1)
+
+[node name="Marker2D6" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="5"]
+position = Vector2(24, -1)
+
+[node name="Marker2D7" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="6"]
+position = Vector2(31, -1)
+
+[node name="Marker2D8" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="7"]
+position = Vector2(39, -1)
+
+[node name="Marker2D9" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="8"]
+position = Vector2(48, -1)
+
+[node name="Marker2D10" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="9"]
+position = Vector2(55, -1)
+
+[node name="Marker2D11" type="Marker2D" parent="WargRoom/Area2D2/Markers" index="10"]
+position = Vector2(63, -1)
+
+[node name="Area2D3" parent="WargRoom" index="8" instance=ExtResource("9_r88tb")]
+position = Vector2(-132, 82)
+collision_layer = 96
+collision_mask = 768
+threshold = 11.0
+
+[node name="CollisionShape2D" parent="WargRoom/Area2D3" index="0"]
+position = Vector2(23.5, -1)
+shape = SubResource("RectangleShape2D_5niy6")
+
+[node name="Marker2D" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="0"]
+position = Vector2(-16, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="1"]
+position = Vector2(-9, -1)
+
+[node name="Marker2D3" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="2"]
+position = Vector2(-1, -1)
+
+[node name="Marker2D4" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="3"]
+position = Vector2(8, -1)
+
+[node name="Marker2D5" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="4"]
+position = Vector2(16, -1)
+
+[node name="Marker2D6" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="5"]
+position = Vector2(24, -1)
+
+[node name="Marker2D7" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="6"]
+position = Vector2(31, -1)
+
+[node name="Marker2D8" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="7"]
+position = Vector2(39, -1)
+
+[node name="Marker2D9" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="8"]
+position = Vector2(48, -1)
+
+[node name="Marker2D10" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="9"]
+position = Vector2(55, -1)
+
+[node name="Marker2D11" type="Marker2D" parent="WargRoom/Area2D3/Markers" index="10"]
+position = Vector2(63, -1)
+
+[node name="Area2D4" parent="WargRoom" index="9" instance=ExtResource("9_r88tb")]
+position = Vector2(-148, 113)
+collision_layer = 96
+collision_mask = 768
+threshold = 11.0
+
+[node name="CollisionShape2D" parent="WargRoom/Area2D4" index="0"]
+position = Vector2(23.5, -1)
+shape = SubResource("RectangleShape2D_5niy6")
+
+[node name="Marker2D" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="0"]
+position = Vector2(-16, -1)
+
+[node name="Marker2D2" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="1"]
+position = Vector2(-9, -1)
+
+[node name="Marker2D3" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="2"]
+position = Vector2(-1, -1)
+
+[node name="Marker2D4" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="3"]
+position = Vector2(8, -1)
+
+[node name="Marker2D5" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="4"]
+position = Vector2(16, -1)
+
+[node name="Marker2D6" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="5"]
+position = Vector2(24, -1)
+
+[node name="Marker2D7" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="6"]
+position = Vector2(31, -1)
+
+[node name="Marker2D8" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="7"]
+position = Vector2(39, -1)
+
+[node name="Marker2D9" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="8"]
+position = Vector2(48, -1)
+
+[node name="Marker2D10" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="9"]
+position = Vector2(55, -1)
+
+[node name="Marker2D11" type="Marker2D" parent="WargRoom/Area2D4/Markers" index="10"]
+position = Vector2(63, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WargRoom" index="10"]
+texture_filter = 1
+position = Vector2(-152, 178)
+scale = Vector2(0.62703323, 0.62703323)
+sprite_frames = SubResource("SpriteFrames_xworo")
+autoplay = "default"
+frame_progress = 0.49572152
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="WargRoom" index="11"]
+texture_filter = 1
+position = Vector2(-140, 184)
+scale = Vector2(0.62703323, 0.62703323)
+sprite_frames = SubResource("SpriteFrames_v8d84")
+autoplay = "default"
+frame_progress = 0.23562315
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="WargRoom" index="12"]
+texture_filter = 1
+position = Vector2(-119, 183)
+scale = Vector2(0.62703323, 0.62703323)
+sprite_frames = SubResource("SpriteFrames_gw1l3")
+autoplay = "default"
+frame_progress = 0.58126444
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="WargRoom" index="13"]
+texture_filter = 1
+position = Vector2(-99, 184)
+scale = Vector2(0.62703323, 0.62703323)
+sprite_frames = SubResource("SpriteFrames_p4se4")
+autoplay = "default"
+frame_progress = 0.38934293
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="WargRoom" index="14"]
+texture_filter = 1
+position = Vector2(-84, 179)
+scale = Vector2(0.62703323, 0.62703323)
+sprite_frames = SubResource("SpriteFrames_sibr7")
+autoplay = "default"
+frame_progress = 0.37134975
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="WargRoom" index="15"]
+texture_filter = 1
+position = Vector2(-71, 183)
+scale = Vector2(0.62703323, 0.62703323)
+sprite_frames = SubResource("SpriteFrames_lkn2k")
+autoplay = "default"
+frame_progress = 0.23489384
+
+[node name="PointLight2D5" type="PointLight2D" parent="WargRoom" index="16"]
+position = Vector2(-41, -30)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D4" type="PointLight2D" parent="WargRoom" index="17"]
+position = Vector2(-81, -30)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="WargRoom" index="18"]
+position = Vector2(-121, -30)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D2" type="PointLight2D" parent="WargRoom" index="19"]
+position = Vector2(-1, -30)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
+
+[node name="PointLight2D" type="PointLight2D" parent="WargRoom" index="20"]
+position = Vector2(38, -29)
+energy = 0.5
+texture = SubResource("GradientTexture2D_a6cnt")
 
 [connection signal="area_entered" from="RangedRoom/WinArea2D" to="RangedRoom/WinArea2D" method="_on_area_entered"]
 [connection signal="body_entered" from="RangedRoom/WinArea2D" to="RangedRoom/WinArea2D" method="_on_body_entered"]
@@ -2826,6 +3429,7 @@ shape = SubResource("RectangleShape2D_v8d84")
 [editable path="TutorialArea"]
 [editable path="Room1Area"]
 [editable path="Room1Area/LeverSpikesArea"]
+[editable path="Room1Area/ResurrectableArea/Human_Character"]
 [editable path="Room1Area/Enemy"]
 [editable path="Room1Area/ActivationArea"]
 [editable path="RangedRoom"]
@@ -2839,3 +3443,7 @@ shape = SubResource("RectangleShape2D_v8d84")
 [editable path="SideRoom/RoomArea/LeverTimedDoor"]
 [editable path="SideRoom/ActivationArea"]
 [editable path="WargRoom"]
+[editable path="WargRoom/Area2D"]
+[editable path="WargRoom/Area2D2"]
+[editable path="WargRoom/Area2D3"]
+[editable path="WargRoom/Area2D4"]

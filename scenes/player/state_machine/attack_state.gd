@@ -6,7 +6,7 @@ var attack_cd = false
 func enter():
 	if attack_cd:
 		return
-	var dir = "up" if player.velocity.y < 0 else "down"
+	var dir = "up" if player.current_direction.y < 0 else "down"
 	character = player.character
 	attack(dir)
 	

@@ -86,67 +86,67 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("4_4avob")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejy0y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5foqe"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4avob"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_trqvy"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3qcv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r24g1"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_34ohi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi2h0"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5foqe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5grd"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_trqvy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpktu"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r24g1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t228h"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pi2h0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2j7e"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5grd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_28jun"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(256, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hpktu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_donh4"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(288, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t228h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwmfv"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(320, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2j7e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ifp"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(352, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_28jun"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ad2r"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(384, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_donh4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpqxv"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(416, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwmfv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3hg5"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(448, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1ifp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iubr8"]
 atlas = ExtResource("2_nh6fe")
 region = Rect2(480, 0, 32, 32)
 
@@ -263,18 +263,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ejy0y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4avob")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g3qcv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_34ohi")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_5foqe")
 }, {
 "duration": 1.0,
@@ -309,6 +297,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e1ifp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ad2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpqxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3hg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iubr8")
 }],
 "loop": true,
 "name": &"idle",
@@ -356,7 +356,7 @@ can_be_resurrected = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_kncw7")
-animation = &"dmg"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" parent="AttackArea" index="0"]

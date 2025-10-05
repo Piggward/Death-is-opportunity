@@ -11,8 +11,8 @@ func process(delta):
 	if player.velocity == Vector2.ZERO:
 		transition_requested.emit(self, PlayerState.State.IDLE)
 	else:
-		player.character_sprite.set_flip_h(player.velocity.x < 0)
-		if player.velocity.y < 0:
+		player.character_sprite.set_flip_h(player.current_direction.x < 0)
+		if player.current_direction.y < 0:
 			player.character_sprite.walk_up()
 		else:
 			player.character_sprite.walk_down()

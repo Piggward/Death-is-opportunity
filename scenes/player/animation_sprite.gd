@@ -13,6 +13,10 @@ func idle():
 func die():
 	play_animation("die")
 	await animation_finished
+	get_parent().should_be_dead = true
+	
+func set_dead():
+	animation = "die"
 	set_frame_progress(1.0)
 	
 func damage():

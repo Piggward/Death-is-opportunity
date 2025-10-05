@@ -1,6 +1,7 @@
 extends PlayerState
 
 func process(delta):
+	player.character.resurrecting = false
 	var x_direction = Input.get_axis("left", "right")
 	var y_direction = Input.get_axis("up", "down")
 	

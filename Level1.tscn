@@ -3988,6 +3988,7 @@ position = Vector2(46, 65)
 character = NodePath("Human_Character")
 
 [node name="Human_Character" parent="Room1Area/ResurrectableArea" instance=ExtResource("6_e0n1a")]
+set_dead = true
 can_be_resurrected = true
 
 [node name="Enemy" parent="Room1Area" node_paths=PackedStringArray("idle_area", "aggro_area") instance=ExtResource("16_3fc7d")]
@@ -4044,5 +4045,6 @@ stream = ExtResource("19_3jhf0")
 [editable path="TutorialArea"]
 [editable path="Room1Area"]
 [editable path="Room1Area/LeverSpikesArea"]
+[editable path="Room1Area/ResurrectableArea/Human_Character"]
 [editable path="Room1Area/Enemy"]
 [editable path="Room1Area/ActivationArea"]

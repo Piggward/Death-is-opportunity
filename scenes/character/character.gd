@@ -17,6 +17,8 @@ extends Node2D
 @onready var hurtbox_area = $HurtboxArea
 var dead = false
 var enemy = false
+var should_be_dead = false
+var resurrecting = false
 @onready var resurrect_marker = $ResurrectMarker
 @onready var become_audio = $become
 @onready var die_audio = $die
@@ -28,9 +30,13 @@ func _ready():
 	if get_parent() is Enemy:
 		enemy = true
 	if set_dead:
+		dead = true
+		should_be_dead = true
 		animated_sprite_2d.die()
 
 func resurrect():
+	should_be_dead = false
+	dead = false
 	animated_sprite_2d.play_backwards("die")
 	become_audio.play()
 	
@@ -71,7 +77,11 @@ func fade():
 	self.queue_free()
 	
 func _process(delta):
+	await get_tree().create_timer(0.4).timeout
 	self.global_rotation = 0
+	if should_be_dead:
+		if animated_sprite_2d.has_method("set_dead"):
+			animated_sprite_2d.set_dead()
 	
 func special():
 	pass

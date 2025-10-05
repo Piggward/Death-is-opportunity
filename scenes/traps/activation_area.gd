@@ -52,10 +52,10 @@ func _on_area_entered(area):
 
 
 func _on_area_exited(area):
-	if area.get_parent().flying:
+	if area.get_parent().flying or area.get_parent().resurrecting or area.get_parent().dead:
 		return
 	for a in get_overlapping_areas():
-		if not a.get_parent().flying:
+		if not a.get_parent().flying or area.get_parent().resurrecting:
 			return
 	var tile = (itemTileMap.local_to_map(self.global_position * 2));
 	itemTileMap.set_cell(tile, ITEMMAPLAYER, original_tile, 0)

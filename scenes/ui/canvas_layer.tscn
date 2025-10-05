@@ -9,7 +9,7 @@
 shader = ExtResource("1_1r0hm")
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/fill_color = Vector3(0.129, 0.674, 0.8)
-shader_parameter/radius = 0.25
+shader_parameter/radius = 1.0
 shader_parameter/softness = 0.4
 
 [sub_resource type="Animation" id="Animation_3jhf0"]
@@ -36,7 +36,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.25]
+"values": [1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -48,7 +48,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -72,7 +72,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_mmkdq"]
@@ -183,7 +183,6 @@ bg_color = Color(0, 0, 0, 1)
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="." groups=["SoulPanel"]]
-visible = false
 material = SubResource("ShaderMaterial_x0ka3")
 anchors_preset = 15
 anchor_right = 1.0
@@ -225,6 +224,7 @@ libraries = {
 }
 
 [node name="FadePanel" type="Panel" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

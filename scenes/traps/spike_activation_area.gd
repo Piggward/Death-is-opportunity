@@ -50,7 +50,7 @@ func change():
 func _on_area_entered(area):
 	if on: 
 		return
-	if area.get_parent().flying:
+	if area.get_parent().flying or area.get_parent().resurrecting:
 		return
 	on = true
 	change()
@@ -61,7 +61,7 @@ func _on_area_exited(area):
 	if not on:
 		return
 	for a in get_overlapping_areas():
-		if not a.get_parent().flying:
+		if not a.get_parent().flying or area.get_parent().resurrecting:
 			return
 	on = false
 	change()

@@ -15,10 +15,9 @@ var stunned = false
 signal has_become_spirit
 @onready var collision_shape_2d = $CollisionShape2D
 
-func switch_bodies(new: Character, pos: Vector2):
+func switch_bodies(new: Character):
 	var old = character
-	new.global_position = pos
-	self.global_position = pos
+	self.global_position = new.global_position
 	character = new
 	set_character()
 	new.reparent(self)
@@ -54,6 +53,7 @@ func become_spirit():
 	var og_pos = self.global_position
 	var soul_character = load("uid://bpbar0ooab80q")
 	var soul = soul_character.instantiate()
+	soul.resurrecting = true
 	self.character = soul
 	add_child(soul)
 	get_tree().get_first_node_in_group("SoulPanel").start_fade_in()

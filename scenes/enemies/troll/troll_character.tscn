@@ -425,8 +425,7 @@ attack_cd = 2.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_kv3gd")
-animation = &"dmg"
+animation = &"die"
 autoplay = "idle"
-
-[node name="ResurrectMarker" parent="." index="4"]
-position = Vector2(6, 3)
+frame = 12
+frame_progress = 1.0

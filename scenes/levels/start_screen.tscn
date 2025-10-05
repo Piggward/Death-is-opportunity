@@ -112,6 +112,7 @@ texture_filter = 1
 position = Vector2(369, 192)
 texture = ExtResource("2_mjsea")
 lifetime = 4.0
+preprocess = 4.0
 process_material = SubResource("ParticleProcessMaterial_4c7x0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

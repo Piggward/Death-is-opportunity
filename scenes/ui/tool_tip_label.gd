@@ -22,7 +22,7 @@ func _ready():
 	self.text = ""
 	
 func _on_try_destroy(text):
-	if self.text == text:
+	if self.text == text or text == "":
 		return
 	else:
 		self.text = text
