@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxyb8ep5wlok5"]
+
+[ext_resource type="Script" uid="uid://cno2aljvrahnr" path="res://scenes/environment/destructable_area.gd" id="1_algkh"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 64
+collision_mask = 512
+script = ExtResource("1_algkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]

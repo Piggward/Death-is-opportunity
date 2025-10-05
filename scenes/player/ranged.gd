@@ -13,6 +13,7 @@ const ENEMY_HURT_LAYER = 7
 const PLAYER_HURT_LAYER = 6
 
 func _ready():
+	EventManager.ranged_spawned.emit()
 	if enemy:
 		set_collision_layer_value(ENEMY_ATTACK_LAYER, true)
 		set_collision_mask_value(PLAYER_HURT_LAYER, true)
@@ -36,6 +37,7 @@ func _on_area_entered(area):
 		area.take_damage(damage)
 		self.queue_free()
 	elif area is AttackArea and enemy:
+		EventManager.has_bounced_back = true
 		self.direction *= -1
 		self.speed *= 4
 		set_collision_layer_value(PLAYER_ATTACK_LAYER, true)

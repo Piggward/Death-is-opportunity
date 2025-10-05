@@ -38,6 +38,6 @@ func enable():
 func _on_area_entered(area):
 	if not area.monitoring and not area.monitorable:
 		return
-	if area is HurtboxArea:
+	if area is HurtboxArea or area is DestructableArea:
 		area.take_damage(character.damage)
 	pass # Replace with function body.
